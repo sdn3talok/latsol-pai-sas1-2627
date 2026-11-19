@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Latihan Soal SAS 1 PAI - SD Negeri 3 Talok (Kelas 1 s.d. 6)</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Amiri (Arabic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            arabic: ['"Amiri"', 'serif']
+          },
+          colors: {
+            canvas: '#FBF9F5',
+            nearblack: '#121212',
+            brandindigo: '#4F46E5',
+            brandorange: '#EA580C',
+            brandteal: '#0D9488',
+            brandpurple: '#7C3AED',
+            brandrose: '#E11D48',
+            branddark: '#18181B',
+            limetag: '#D4F479',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Strict Bold Neo-Brutalist-Lite System */
+    body {
+      background-color: #FBF9F5;
+      color: #121212;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1ECE1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #18181B;
+      border-radius: 9999px;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: 3px solid #18181B;
+      outline-offset: 1px;
+    }
+
+    .arabic-text {
+      font-family: 'Amiri', serif;
+      direction: rtl;
+      line-height: 1.8;
+    }
+
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+      }
+      .print-card {
+        border: 1px solid #CCCCCC !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#FBF9F5] text-[#121212] selection:bg-black selection:text-white pb-20">
+
+  <!-- ==================== HEADER BRANDING ==================== -->
+  <header class="w-full bg-[#18181B] text-white px-4 py-5 md:py-6 border-b-4 border-black no-print">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+          <span class="bg-[#D4F479] text-[#111111] text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+            Kurikulum Merdeka
+          </span>
+          <span class="bg-white/20 text-white text-xs font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+            T.P. 2026/2027
+          </span>
+          <span class="bg-white/20 text-white text-xs font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+            SD Negeri 3 Talok - Turen
+          </span>
+        </div>
+        <h1 class="text-xl md:text-2xl font-black tracking-tight text-white uppercase">
+          Latihan Soal SAS 1 PAI - SD Negeri 3 Talok
+        </h1>
+        <p class="text-xs md:text-sm text-zinc-300 font-medium">
+          Asesmen Sumatif Akhir Semester (ASAS) Ganjil • Lengkap Kelas 1 sampai Kelas 6
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="#hub" onclick="app.showHub()" class="inline-flex items-center justify-center bg-white text-[#18181B] hover:bg-zinc-200 font-extrabold text-xs md:text-sm px-4 py-2.5 rounded-full transition-transform active:scale-95">
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Pilih Kelas
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN VIEW CONTAINER ==================== -->
+  <main class="flex-grow max-w-5xl mx-auto w-full px-4 pt-6">
+
+    <!-- ======================================================== -->
+    <!-- VIEW 1: CLASS SELECTION HUB (BERANDA PILIH KELAS 1-6) -->
+    <!-- ======================================================== -->
+    <div id="view-hub" class="space-y-6">
+      <!-- Hero Banner -->
+      <div class="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#18181B]">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 bg-[#D4F479] text-[#111111] font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+            <span>✨ Portal Asesmen Interaktif Lengkap (Kelas 1 - 6)</span>
+          </div>
+          <h2 class="text-2xl md:text-4xl font-black tracking-tight text-[#18181B] uppercase leading-tight mb-3">
+            Pilih Jenjang Kelas Kamu
+          </h2>
+          <p class="text-zinc-700 text-sm md:text-base font-medium leading-relaxed mb-4">
+            Selamat datang di simulasi latihan soal Asesmen Sumatif Akhir Semester (SAS 1) mata pelajaran Pendidikan Agama Islam dan Budi Pekerti SD Negeri 3 Talok. Lengkap dari Kelas 1 sampai Kelas 6 dengan timer hitungan mundur 90 menit dan kunci jawaban otomatis.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-bold text-zinc-800">
+            <div class="bg-[#FBF9F5] p-2.5 rounded-xl border border-zinc-300">⏱️ Waktu: 90 Menit</div>
+            <div class="bg-[#FBF9F5] p-2.5 rounded-xl border border-zinc-300">📝 Soal: 35 s.d. 45 Butir</div>
+            <div class="bg-[#FBF9F5] p-2.5 rounded-xl border border-zinc-300">🎯 Skor Maks: 100 Poin</div>
+            <div class="bg-[#FBF9F5] p-2.5 rounded-xl border border-zinc-300">📱 Mobile Responsive</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Class Cards Grid (Flat Solid Color per class: Kelas 1 s.d. 6) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Rendered dynamically by app.renderHub() -->
+      </div>
+
+      <!-- Status Footer Badge -->
+      <div class="bg-[#18181B] text-white p-5 rounded-2xl border-2 border-black flex items-start gap-4">
+        <div class="bg-[#D4F479] text-[#111111] p-3 rounded-xl font-black text-lg">💡</div>
+        <div class="space-y-1">
+          <h4 class="font-extrabold text-sm md:text-base text-white">Status Soal Seluruh Jenjang</h4>
+          <p class="text-xs md:text-sm text-zinc-300 font-medium leading-relaxed">
+            Seluruh soal latihan untuk <strong class="text-white underline">Kelas 1, 2, 3, 4, 5, dan 6</strong> kini telah aktif dan terintegrasi 100% lengkap dengan kisi-kisi, kunci jawaban resmi, dan rubrik penskoran ASAS PAI Kurikulum Merdeka.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- VIEW 2: EXAM WORKSPACE (PENGERJAAN SOAL) -->
+    <!-- ======================================================== -->
+    <div id="view-exam" class="hidden space-y-6">
+
+      <!-- STICKY TOP STATUS BAR (Timer + Progress) -->
+      <div id="exam-sticky-bar" class="sticky top-2 z-30 bg-[#18181B] text-white p-3.5 md:p-4 rounded-2xl border-2 border-black flex flex-wrap items-center justify-between gap-3 transition-colors no-print">
+        
+        <!-- Left: Class badge & Title -->
+        <div class="flex items-center gap-2">
+          <button onclick="app.confirmExitExam()" class="bg-white/20 hover:bg-white/30 text-white p-2 rounded-xl text-xs font-bold transition-transform active:scale-95" title="Kembali ke Beranda">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          </button>
+          <div>
+            <span id="active-class-pill" class="text-xs font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white text-black">
+              Kelas 1
+            </span>
+            <span class="text-xs md:text-sm font-extrabold hidden sm:inline ml-2 text-zinc-200">
+              SAS 1 PAI & BP
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: Timer & Answer Counter -->
+        <div class="flex items-center gap-3">
+          <!-- Counter Pill -->
+          <div class="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 text-xs font-extrabold flex items-center gap-1.5">
+            <span class="text-zinc-300">Terjawab:</span>
+            <span id="answered-badge" class="text-[#D4F479] font-black">0 / 35</span>
+          </div>
+
+          <!-- Countdown Timer Pill -->
+          <div id="timer-pill" class="bg-[#D4F479] text-[#111111] px-3.5 py-1.5 rounded-xl font-black text-sm md:text-base flex items-center gap-1.5 tracking-wider">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span id="timer-display">90:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Identity Card -->
+      <div id="student-form-card" class="rounded-2xl p-6 text-white border-2 border-black transition-colors" style="background-color: #4F46E5;">
+        <div class="flex items-center justify-between gap-4 mb-4 flex-wrap">
+          <div class="flex items-center gap-2">
+            <span class="bg-black text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+              DATA PESERTA ASESMEN
+            </span>
+          </div>
+          <span id="exam-meta-info" class="text-xs font-bold text-white/90">Waktu: ± 90 Menit • 35 Butir</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-white/90 mb-1.5">Nama Lengkap Siswa</label>
+            <input type="text" id="input-student-name" placeholder="Tuliskan namamu..." class="w-full bg-white text-black font-bold text-sm px-4 py-2.5 rounded-xl border-2 border-black placeholder:text-zinc-400">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-white/90 mb-1.5">Nomor Absen</label>
+            <input type="number" id="input-student-no" placeholder="Contoh: 12" class="w-full bg-white text-black font-bold text-sm px-4 py-2.5 rounded-xl border-2 border-black placeholder:text-zinc-400">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-white/90 mb-1.5">Hari / Tanggal</label>
+            <input type="text" id="input-student-date" readonly class="w-full bg-white/90 text-black font-bold text-sm px-4 py-2.5 rounded-xl border-2 border-black">
+          </div>
+        </div>
+      </div>
+
+      <!-- General Instructions -->
+      <div class="bg-white p-5 rounded-2xl border-2 border-black space-y-2">
+        <h3 class="font-extrabold text-sm uppercase tracking-wider text-[#18181B] flex items-center gap-2">
+          <span>📋 PETUNJUK PENGERJAAN</span>
+        </h3>
+        <ol class="text-xs md:text-sm text-zinc-700 font-medium space-y-1 list-decimal list-inside leading-relaxed">
+          <li>Berdoalah terlebih dahulu sebelum memulai mengerjakan soal.</li>
+          <li>Isikan nama dan nomor absen pada formulir peserta di atas.</li>
+          <li>Jawablah semua butir soal dengan teliti dan jujur.</li>
+          <li><span class="text-red-600 font-bold">Kunci Jawaban dan Nilai hanya akan terbuka jika kamu sudah mengisi SEMUA soal tanpa ada yang terlewat.</span></li>
+        </ol>
+      </div>
+
+      <!-- QUESTIONS CONTAINER (Sections rendered dynamically) -->
+      <div id="questions-container" class="space-y-6">
+        <!-- Rendered dynamically by app.renderExam() -->
+      </div>
+
+      <!-- SUBMIT ACTION BAR -->
+      <div class="bg-[#18181B] text-white p-5 md:p-6 rounded-2xl border-2 border-black flex flex-col sm:flex-row items-center justify-between gap-4 no-print">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-base md:text-lg">Selesai Mengerjakan?</span>
+            <span id="footer-status-badge" class="bg-red-500 text-white text-xs font-black px-2.5 py-0.5 rounded-full">
+              Belum Lengkap
+            </span>
+          </div>
+          <p class="text-xs md:text-sm text-zinc-400 font-medium mt-1">
+            Pastikan seluruh soal sudah kamu isi agar kunci jawaban dan nilai dapat ditampilkan.
+          </p>
+        </div>
+
+        <button onclick="app.submitExam()" class="w-full sm:w-auto bg-[#D4F479] hover:bg-[#bef264] text-[#111111] font-black text-sm md:text-base px-7 py-3.5 rounded-full border-2 border-black transition-transform active:scale-95 shadow-none flex items-center justify-center gap-2">
+          <span>Kumpulkan & Buka Kunci Jawaban</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- VIEW 3: RESULTS & ANSWER KEY (HASIL & KUNCI JAWABAN) -->
+    <!-- ======================================================== -->
+    <div id="view-result" class="hidden space-y-6">
+
+      <!-- Score Hero Card -->
+      <div id="result-hero-card" class="rounded-2xl p-6 md:p-8 text-white border-2 border-black" style="background-color: #18181B;">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="res-class-pill" class="bg-[#D4F479] text-[#111111] text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                Kelas 1
+              </span>
+              <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full">
+                Selesai Dikerjakan
+              </span>
+            </div>
+            <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-white">
+              Hasil Latihan & Kunci Jawaban
+            </h2>
+            <p id="res-student-info" class="text-sm md:text-base text-zinc-300 font-medium">
+              Peserta: Siswa Teladan • Absen: - • Durasi Pengerjaan: -
+            </p>
+          </div>
+
+          <!-- Score Box -->
+          <div class="bg-white text-black p-5 md:p-6 rounded-2xl border-2 border-black flex flex-col items-center justify-center min-w-[170px] text-center">
+            <span class="text-xs font-black uppercase tracking-wider text-zinc-500">Skor Otomatis</span>
+            <div id="res-total-score" class="text-4xl md:text-5xl font-black tracking-tight text-[#18181B] my-1">
+              85
+            </div>
+            <span id="res-score-note" class="text-xs font-bold text-zinc-600">dari 100 poin</span>
+          </div>
+        </div>
+
+        <!-- Breakdown Grid -->
+        <div id="res-breakdown-grid" class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-6 pt-6 border-t border-white/20 text-xs">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Action Buttons Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-2xl border-2 border-black no-print">
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="bg-[#18181B] hover:bg-black text-white font-black text-xs md:text-sm px-4 py-2.5 rounded-full transition-transform active:scale-95 flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            Cetak / Simpan PDF
+          </button>
+          <button onclick="app.retakeExam()" class="bg-zinc-200 hover:bg-zinc-300 text-[#18181B] font-black text-xs md:text-sm px-4 py-2.5 rounded-full transition-transform active:scale-95">
+            🔄 Ulangi Latihan
+          </button>
+        </div>
+
+        <button onclick="app.showHub()" class="bg-[#18181B] hover:bg-black text-white font-black text-xs md:text-sm px-5 py-2.5 rounded-full transition-transform active:scale-95">
+          🏠 Pilih Kelas Lain
+        </button>
+      </div>
+
+      <!-- Detailed Review per Question -->
+      <div class="space-y-4">
+        <h3 class="text-lg md:text-xl font-black uppercase tracking-tight text-[#18181B]">
+          📖 Pembahasan & Evaluasi Jawaban Lengkap
+        </h3>
+
+        <div id="results-review-container" class="space-y-4">
+          <!-- Rendered dynamically by app.renderResults() -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ======================================================== -->
+  <!-- MODAL: WARNING UNANSWERED QUESTIONS -->
+  <!-- ======================================================== -->
+  <div id="modal-unanswered" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-none hidden">
+    <div class="bg-white rounded-2xl border-4 border-black max-w-lg w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center gap-3 text-red-600">
+        <div class="bg-red-100 p-2.5 rounded-xl border-2 border-red-500 font-black text-xl">⚠️</div>
+        <div>
+          <h3 class="text-lg font-black uppercase text-[#18181B]">Soal Belum Lengkap!</h3>
+          <p class="text-xs text-zinc-600 font-bold">Kunci jawaban baru terbuka jika semua soal sudah diisi.</p>
+        </div>
+      </div>
+
+      <div class="bg-[#FBF9F5] p-4 rounded-xl border-2 border-zinc-300">
+        <p class="text-xs md:text-sm font-bold text-zinc-800 mb-2">
+          Masih ada <span id="unanswered-count-text" class="text-red-600 font-black text-base">0</span> soal yang belum kamu jawab:
+        </p>
+        <div id="unanswered-pills-list" class="flex flex-wrap gap-2 pt-1 max-h-48 overflow-y-auto">
+          <!-- Clickable pills populated here -->
+        </div>
+      </div>
+
+      <p class="text-xs text-zinc-600 font-medium">
+        👉 <em>Klik nomor di atas untuk langsung melompat ke soal yang belum terisi.</em>
+      </p>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button onclick="app.closeUnansweredModal()" class="w-full bg-[#18181B] hover:bg-black text-white font-extrabold text-sm py-3 px-5 rounded-full transition-transform active:scale-95">
+          Lanjutkan Mengerjakan
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- MODAL: CONFIRM SUBMISSION -->
+  <!-- ======================================================== -->
+  <div id="modal-confirm" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-none hidden">
+    <div class="bg-white rounded-2xl border-4 border-black max-w-md w-full p-6 space-y-4">
+      <div class="flex items-center gap-3 text-emerald-600">
+        <div class="bg-emerald-100 p-2.5 rounded-xl border-2 border-emerald-500 font-black text-xl">✅</div>
+        <div>
+          <h3 class="text-lg font-black uppercase text-[#18181B]">Semua Soal Terisi Lengkap!</h3>
+          <p class="text-xs text-zinc-600 font-bold">Seluruh butir soal telah kamu selesaikan.</p>
+        </div>
+      </div>
+
+      <p class="text-sm text-zinc-700 font-medium leading-relaxed">
+        Apakah kamu sudah yakin dengan semua jawabanmu? Setelah dikumpulkan, timer akan dihentikan dan sistem akan menampilkan nilai beserta <strong>Kunci Jawaban Resmi</strong>.
+      </p>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button onclick="app.closeConfirmModal()" class="bg-zinc-200 hover:bg-zinc-300 text-[#18181B] font-extrabold text-xs md:text-sm py-2.5 px-4 rounded-full transition-transform active:scale-95">
+          Periksa Lagi
+        </button>
+        <button onclick="app.finalizeSubmission()" class="bg-[#D4F479] hover:bg-[#bef264] text-[#111111] font-black text-xs md:text-sm py-2.5 px-5 rounded-full border-2 border-black transition-transform active:scale-95">
+          Ya, Buka Kunci Jawaban!
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== JAVASCRIPT APPLICATION CORE ==================== -->
+  <script>
+    const APP_DATA = {"classes": [{"id": "kelas-1", "grade": "1", "title": "Kelas 1", "fase": "Fase A", "bg": "#4F46E5", "bgHover": "#4338CA", "text": "#FFFFFF", "badgeBg": "#EEF2FF", "badgeText": "#3730A3", "status": "active", "statusText": "35 Soal Siap Dikerjakan", "subtitle": "Al-Qur'an, Rukun Iman, Basmalah & Hamdalah, Syahadat, Kisah Nabi Adam a.s."}, {"id": "kelas-2", "grade": "2", "title": "Kelas 2", "fase": "Fase A", "bg": "#EA580C", "bgHover": "#C2410C", "text": "#FFFFFF", "badgeBg": "#FFF7ED", "badgeText": "#9A3412", "status": "active", "statusText": "35 Soal Siap Dikerjakan", "subtitle": "QS. An-Nas & Al-Falaq, Asmaul Husna, Hidup Bersih & Rapi, Azan-Iqamah, Nabi Nuh a.s."}, {"id": "kelas-3", "grade": "3", "title": "Kelas 3", "fase": "Fase B", "bg": "#0D9488", "bgHover": "#0F766E", "text": "#FFFFFF", "badgeBg": "#CCFBF1", "badgeText": "#115E59", "status": "active", "statusText": "40 Soal Siap Dikerjakan", "subtitle": "Surat Al-Kautsar, Sifat Wajib & Mustahil Allah, Asmaul Husna, Adab Azan, Nabi Muhammad saw."}, {"id": "kelas-4", "grade": "4", "title": "Kelas 4", "fase": "Fase B", "bg": "#7C3AED", "bgHover": "#6D28D9", "text": "#FFFFFF", "badgeBg": "#F3E8FF", "badgeText": "#581C87", "status": "active", "statusText": "40 Soal Siap Dikerjakan", "subtitle": "Surat An-Nashr, Asmaul Husna (Al-Wahhab & Al-Fattah), Taubat & Silaturahmi, Shalat Tahajud & Rawatib."}, {"id": "kelas-5", "grade": "5", "title": "Kelas 5", "fase": "Fase C", "bg": "#E11D48", "bgHover": "#BE123C", "text": "#FFFFFF", "badgeBg": "#FFE4E6", "badgeText": "#881337", "status": "active", "statusText": "45 Soal Siap Dikerjakan", "subtitle": "Q.S. Al-'Asr, Asmaul Husna (Al-Halim & Al-Hakim), Tawakal & Doa, Puasa Ramadan, Fathu Makkah."}, {"id": "kelas-6", "grade": "6", "title": "Kelas 6", "fase": "Fase C", "bg": "#18181B", "bgHover": "#09090B", "text": "#FFFFFF", "badgeBg": "#D4F479", "badgeText": "#111111", "status": "active", "statusText": "45 Soal Siap Dikerjakan", "subtitle": "Surah Al-Insyirah, Asmaul Husna (Al-Adl & As-Sabur), Zakat & Infak, Khalifah Abu Bakar & Umar."}], "questionsMap": {"kelas-1": {"id": "kelas-1", "grade": "1", "title": "Kelas 1 - Fase A", "subtitle": "PAI & Budi Pekerti - Semester Ganjil", "themeColor": "#4F46E5", "themeLight": "#EEF2FF", "themeDark": "#3730A3", "accentColor": "#6366F1", "totalQuestions": 35, "questions": [{"id": 1, "type": "pg", "q": "Kitab suci agama Islam adalah ...", "options": ["Al-Qur'an", "Injil", "Taurat", "Zabur"], "key": "A", "key_text": "Al-Qur'an", "score": 2}, {"id": 2, "type": "pg", "q": "Huruf-huruf yang dipakai untuk menulis Al-Qur'an disebut huruf ...", "options": ["latin", "angka", "hijaiyah", "jawa"], "key": "C", "key_text": "hijaiyah", "score": 2}, {"id": 3, "type": "pg", "q": "Perhatikan huruf berikut! Tanda baca di bawah huruf tersebut bernama ...", "arabic": "بِ", "options": ["fathah", "dhammah", "sukun", "kasrah"], "key": "D", "key_text": "kasrah", "score": 2}, {"id": 4, "type": "pg", "q": "Perhatikan huruf berikut! Huruf tersebut dibaca ...", "arabic": "بَ", "options": ["bi", "ba", "bu", "ta"], "key": "B", "key_text": "ba", "score": 2}, {"id": 5, "type": "pg", "q": "Iman artinya ...", "options": ["makan dengan lahap", "berlari dengan cepat", "tidur dengan nyenyak", "percaya dengan sepenuh hati"], "key": "D", "key_text": "percaya dengan sepenuh hati", "score": 2}, {"id": 6, "type": "pg", "q": "Rukun iman yang benar, berurutan dari yang pertama, adalah ...", "options": ["Iman kepada malaikat, iman kepada Allah, iman kepada kitab-kitab Allah", "Iman kepada Allah, iman kepada malaikat, iman kepada kitab-kitab Allah", "Iman kepada kitab-kitab Allah, iman kepada Allah, iman kepada malaikat", "Iman kepada rasul, iman kepada Allah, iman kepada malaikat"], "key": "B", "key_text": "Iman kepada Allah, iman kepada malaikat, iman kepada kitab-kitab Allah", "score": 2}, {"id": 7, "type": "pg", "q": "Yang termasuk ciptaan Allah Swt. adalah ...", "options": ["boneka", "sepeda", "pohon", "buku"], "key": "C", "key_text": "pohon", "score": 2}, {"id": 8, "type": "pg", "q": "Teman-teman sekelas Rani membersihkan kelas bersama-sama. Sikap Rani sebagai bukti cinta kepada Allah dan Rasul-Nya adalah ...", "options": ["bermain sendirian", "ikut membantu dan bekerja sama dengan teman", "berpura-pura sakit", "diam saja melihat teman bekerja"], "key": "B", "key_text": "ikut membantu dan bekerja sama dengan teman", "score": 2}, {"id": 9, "type": "pg", "q": "Susunan bacaan basmalah yang benar adalah ...", "options": ["Rahmanir bismillahi rahim", "Rahim bismillahir rahmani", "Bismillahir rahmanir rahim", "Bismillahi rahim rahmani"], "key": "C", "key_text": "Bismillahir rahmanir rahim", "score": 2}, {"id": 10, "type": "pg", "q": "Sebelum mulai belajar, kita membaca ...", "options": ["hamdalah", "basmalah", "takbir", "tasbih"], "key": "B", "key_text": "basmalah", "score": 2}, {"id": 11, "type": "pg", "q": "Bacaan hamdalah berikut artinya ...", "arabic": "الْحَمْدُ لِلَّهِ", "options": ["segala puji bagi Allah", "dengan nama Allah", "Allah Maha Besar", "Maha Suci Allah"], "key": "A", "key_text": "segala puji bagi Allah", "score": 2}, {"id": 12, "type": "pg", "q": "Ibu membelikan Ani sepatu baru. Cara Ani bersyukur yang tepat adalah ...", "options": ["meminta sepatu lagi", "membuang sepatu lamanya", "mengeluh karena warnanya", "mengucapkan alhamdulillah dan berterima kasih kepada ibu"], "key": "D", "key_text": "mengucapkan alhamdulillah dan berterima kasih kepada ibu", "score": 2}, {"id": 13, "type": "pg", "q": "Rukun Islam ada ... macam.", "options": ["3", "4", "5", "6"], "key": "C", "key_text": "5", "score": 2}, {"id": 14, "type": "pg", "q": "Rukun Islam yang kedua adalah ...", "options": ["mengucapkan dua kalimat syahadat", "mengerjakan shalat", "berpuasa di bulan Ramadan", "pergi haji ke Baitullah"], "key": "B", "key_text": "mengerjakan shalat", "score": 2}, {"id": 15, "type": "pg", "q": "Perhatikan bacaan berikut! Artinya adalah ...", "arabic": "وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ", "options": ["aku bersaksi tidak ada Tuhan selain Allah", "Allah Maha Besar", "segala puji bagi Allah", "dan aku bersaksi bahwa Muhammad adalah utusan Allah"], "key": "D", "key_text": "dan aku bersaksi bahwa Muhammad adalah utusan Allah", "score": 2}, {"id": 16, "type": "pg", "q": "Bacaan syahadat tauhid yang benar adalah ...", "options": ["Asyhadu anna Muhammadan rasuulullaah", "Asyhadu an laa ilaaha illallaah", "Allaahu akbar", "Subhaanallaah"], "key": "B", "key_text": "Asyhadu an laa ilaaha illallaah", "score": 2}, {"id": 17, "type": "pg", "q": "Nabi dan manusia pertama yang diciptakan Allah Swt. adalah Nabi ...", "options": ["Nuh a.s.", "Ibrahim a.s.", "Musa a.s.", "Adam a.s."], "key": "D", "key_text": "Adam a.s.", "score": 2}, {"id": 18, "type": "pg", "q": "Nabi Adam a.s. dan Hawa melanggar perintah Allah karena tergoda oleh bujukan ...", "options": ["malaikat", "burung", "setan (Iblis)", "teman"], "key": "C", "key_text": "setan (Iblis)", "score": 2}, {"id": 19, "type": "pg", "q": "Nabi Adam a.s. dan Hawa dilarang Allah Swt. memakan buah dari pohon ...", "options": ["khuldi", "apel", "mangga", "kelapa"], "key": "A", "key_text": "khuldi", "score": 2}, {"id": 20, "type": "pg", "q": "Setelah menyadari kesalahannya, Nabi Adam a.s. segera meminta ampun kepada Allah. Sikap yang dapat kita teladani adalah ...", "options": ["menyalahkan orang lain", "mau mengakui kesalahan dan bertaubat", "marah-marah", "bersembunyi"], "key": "B", "key_text": "mau mengakui kesalahan dan bertaubat", "score": 2}, {"id": 21, "type": "isian", "q": "Perhatikan huruf berikut! Huruf tersebut dibaca .........", "arabic": "تُ", "key": "tu", "keywords": ["tu"], "score": 3}, {"id": 22, "type": "isian", "q": "Menjalankan shalat dan berdoa kepada Allah adalah contoh rukun iman yang pertama, yaitu iman kepada .........", "key": "Allah (Swt.)", "keywords": ["allah", "allah swt", "allah swt."], "score": 3}, {"id": 23, "type": "isian", "q": "Setelah selesai makan, kita bersyukur dengan mengucapkan .........", "key": "Alhamdulillah (hamdalah)", "keywords": ["alhamdulillah", "hamdalah", "alhamdulilah"], "score": 3}, {"id": 24, "type": "isian", "q": "Syahadat yang berisi kesaksian bahwa tidak ada Tuhan selain Allah disebut syahadat .........", "key": "tauhid", "keywords": ["tauhid", "tawhid"], "score": 3}, {"id": 25, "type": "isian", "q": "Setelah turun ke bumi, Nabi Adam a.s. dan Hawa bertemu kembali di sebuah bukit bernama Jabal .........", "key": "Rahmah", "keywords": ["rahmah", "rohmah", "jabal rahmah"], "score": 3}, {"id": 26, "type": "match", "premise": "Tanda baca kasrah dibaca dengan bunyi ...", "key": "C", "key_text": "Dibaca \"i\"", "score": 3}, {"id": 27, "type": "match", "premise": "Iman artinya ...", "key": "B", "key_text": "Percaya dengan sepenuh hati", "score": 3}, {"id": 28, "type": "match", "premise": "الْحَمْدُ لِلَّهِ dibaca ...", "key": "D", "key_text": "Alhamdulillah", "score": 3}, {"id": 29, "type": "match", "premise": "Syahadat artinya ...", "key": "A", "key_text": "Bersaksi", "score": 3}, {"id": 30, "type": "match", "premise": "Jika berbuat salah, aku harus seperti Nabi Adam a.s., yaitu ...", "key": "E", "key_text": "Meminta ampun dan bertaubat kepada Allah", "score": 3}, {"id": 31, "type": "uraian", "q": "Tuliskan 5 huruf hijaiyah yang kamu ketahui!", "key": "Contoh: ا (alif), ب (ba), ت (ta), ث (tsa), ج (jim), ح (ha), خ (kha), dan seterusnya.", "rubric": "Tiap huruf hijaiyah yang benar = 1 (maks. 5). Jika kelima huruf benar dan tulisan terbaca = +1.", "score": 6}, {"id": 32, "type": "uraian", "q": "Tuliskan 2 contoh sikap santun kepada guru atau orang tua yang kamu lakukan sehari-hari!", "key": "Mengucapkan salam dan mencium tangan; Berbicara dengan lembut dan sopan; Mengucapkan tolong, maaf, dan terima kasih; Tidak memotong pembicaraan orang yang lebih tua.", "rubric": "Tiap contoh sikap santun yang tepat = 3 (maks. 6).", "score": 6}, {"id": 33, "type": "uraian", "q": "Tuliskan bacaan basmalah beserta artinya!", "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", "key": "Bismillahir rahmanir rahim. Artinya: Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang.", "rubric": "Bacaan benar (Arab atau Latin) = 3; arti benar = 3. Kekeliruan kecil pada salah satu bagian = skor 1–2 untuk bagian itu.", "score": 6}, {"id": 34, "type": "uraian", "q": "Jelaskan arti dua kalimat syahadat dengan kata-katamu sendiri!", "key": "Syahadat tauhid: aku bersaksi bahwa tidak ada Tuhan selain Allah. Syahadat rasul: aku bersaksi bahwa Nabi Muhammad adalah utusan Allah.", "rubric": "Arti syahadat tauhid benar = 3; arti syahadat rasul benar = 3.", "score": 6}, {"id": 35, "type": "uraian", "q": "Sebutkan 2 sikap Nabi Adam a.s. yang dapat kamu teladani!", "key": "Mengakui kesalahan; Bertaubat dan meminta ampun kepada Allah; Tidak mengulangi kesalahan; Bersabar dan terus berdoa.", "rubric": "Tiap sikap yang tepat = 3 (maks. 6).", "score": 6}], "match_options": [{"id": "A", "text": "Bersaksi"}, {"id": "B", "text": "Percaya dengan sepenuh hati"}, {"id": "C", "text": "Dibaca \"i\""}, {"id": "D", "text": "Alhamdulillah"}, {"id": "E", "text": "Meminta ampun dan bertaubat kepada Allah"}, {"id": "F", "text": "Dibaca \"a\""}, {"id": "G", "text": "Bismillah"}]}, "kelas-2": {"id": "kelas-2", "grade": "2", "title": "Kelas 2 - Fase A", "subtitle": "PAI & Budi Pekerti - Semester Ganjil", "themeColor": "#EA580C", "themeLight": "#FFF7ED", "themeDark": "#9A3412", "accentColor": "#F97316", "totalQuestions": 35, "questions": [{"id": 1, "type": "pg", "q": "Pesan pokok QS. An-Nas adalah kita memohon perlindungan kepada Allah dari bisikan ...", "options": ["angin dan hujan", "teman dan guru", "setan, jin, dan manusia yang jahat", "ayah dan ibu"], "key": "C", "key_text": "setan, jin, dan manusia yang jahat", "score": 2}, {"id": 2, "type": "pg", "q": "Dika tidak takut tidur sendiri karena ia yakin Allah melindunginya, seperti pesan QS. Al-Falaq. Sikap Dika menunjukkan sikap ...", "options": ["berani dan percaya diri", "penakut", "sombong", "malas"], "key": "A", "key_text": "berani dan percaya diri", "score": 2}, {"id": 3, "type": "pg", "q": "Pesan pokok QS. Al-Falaq adalah kita memohon perlindungan hanya kepada ...", "options": ["jin", "pohon besar", "benda keramat", "Allah Swt."], "key": "D", "key_text": "Allah Swt.", "score": 2}, {"id": 4, "type": "pg", "q": "Ayat pertama QS. An-Nas yang benar adalah ...", "arabic": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ", "options": ["قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ", "قُلْ هُوَ اللَّهُ أَحَدٌ", "قُلْ أَعُوذُ بِرَبِّ النَّاسِ", "إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ"], "key": "C", "key_text": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ", "score": 2}, {"id": 5, "type": "pg", "q": "Salah satu bentuk kasih sayang Nabi Muhammad saw. kepada anak-anak adalah ...", "options": ["membentak mereka", "tidak memedulikan mereka", "menyapa dan mengusap kepala mereka dengan lembut", "melarang mereka bermain"], "key": "C", "key_text": "menyapa dan mengusap kepala mereka dengan lembut", "score": 2}, {"id": 6, "type": "pg", "q": "Bentuk kasih sayang Allah Swt. kepada semua makhluk-Nya adalah ...", "options": ["membiarkan makhluk kelaparan", "memberi makanan, air, dan udara untuk hidup", "menutup semua rezeki", "melarang makhluk bernapas"], "key": "B", "key_text": "memberi makanan, air, dan udara untuk hidup", "score": 2}, {"id": 7, "type": "pg", "q": "Allah memiliki nama-nama yang indah dan baik. Nama-nama tersebut disebut ...", "options": ["Rukun Islam", "Rukun Iman", "Hari Raya", "Asmaul Husna"], "key": "D", "key_text": "Asmaul Husna", "score": 2}, {"id": 8, "type": "pg", "q": "Setelah bermain, Rani menyimpan mainannya di tempat semula. Sikap Rani menunjukkan hidup ...", "options": ["rapi", "boros", "malas", "kotor"], "key": "A", "key_text": "rapi", "score": 2}, {"id": 9, "type": "pg", "q": "Contoh gaya hidup bersih adalah ...", "options": ["membuang sampah sembarangan", "tidak menyikat gigi", "memakai baju kotor", "mandi dua kali sehari"], "key": "D", "key_text": "mandi dua kali sehari", "score": 2}, {"id": 10, "type": "pg", "q": "Shalat harus dikerjakan dengan tertib. Maksudnya, shalat dikerjakan ...", "options": ["sesuai urutan gerakan dan bacaannya", "sesuka hati", "sambil bercanda", "dengan terburu-buru"], "key": "A", "key_text": "sesuai urutan gerakan dan bacaannya", "score": 2}, {"id": 11, "type": "pg", "q": "Mendengar azan, Fajar segera berwudu dan berangkat ke masjid. Sikap Fajar menunjukkan sikap ...", "options": ["malas", "ragu-ragu", "disiplin", "acuh tak acuh"], "key": "C", "key_text": "disiplin", "score": 2}, {"id": 12, "type": "pg", "q": "Agar disiplin, shalat fardu sebaiknya dikerjakan ...", "options": ["ketika ingin saja", "di awal waktu", "kalau sempat", "setelah waktunya habis"], "key": "B", "key_text": "di awal waktu", "score": 2}, {"id": 13, "type": "pg", "q": "Azan dikumandangkan untuk menandai ...", "options": ["selesainya shalat", "waktu makan siang", "masuknya waktu shalat fardu", "waktu pulang sekolah"], "key": "C", "key_text": "masuknya waktu shalat fardu", "score": 2}, {"id": 14, "type": "pg", "q": "Sinta mengikuti shalat berjamaah di rumah dengan tenang dan tidak bercanda. Sikap Sinta menunjukkan sikap ...", "options": ["ramai dan bercanda", "malas dan lalai", "terburu-buru", "tertib dan sungguh-sungguh"], "key": "D", "key_text": "tertib dan sungguh-sungguh", "score": 2}, {"id": 15, "type": "pg", "q": "Dalam sehari semalam, kita wajib mengerjakan shalat fardu sebanyak ... waktu.", "options": ["3", "4", "5", "6"], "key": "C", "key_text": "5", "score": 2}, {"id": 16, "type": "pg", "q": "Nabi Nuh a.s. berdakwah kepada kaumnya agar menyembah ...", "options": ["Allah Swt.", "patung berhala", "matahari", "pohon besar"], "key": "A", "key_text": "Allah Swt.", "score": 2}, {"id": 17, "type": "pg", "q": "Allah memerintahkan Nabi Nuh a.s. untuk membuat ...", "options": ["rumah tinggi", "kapal besar", "jembatan panjang", "masjid besar"], "key": "B", "key_text": "kapal besar", "score": 2}, {"id": 18, "type": "pg", "q": "Kita meyakini bahwa kisah Nabi Nuh a.s. itu benar karena diceritakan di dalam ...", "options": ["dongeng", "komik", "Al-Qur'an", "film kartun"], "key": "C", "key_text": "Al-Qur'an", "score": 2}, {"id": 19, "type": "pg", "q": "Nabi Nuh a.s. sabar dan bekerja keras membuat kapal. Kita dapat meneladaninya dengan ...", "options": ["tidak mudah menyerah saat belajar", "cepat menyerah ketika sulit", "mengeluh setiap hari", "menyalahkan teman"], "key": "A", "key_text": "tidak mudah menyerah saat belajar", "score": 2}, {"id": 20, "type": "pg", "q": "Nabi Nuh a.s. tetap berdakwah walaupun dihina oleh kaumnya. Pelajaran yang dapat kita ambil adalah ...", "options": ["kita boleh membalas hinaan", "kita harus berhenti berbuat baik", "kita boleh marah dan menyerang", "kita harus sabar dan terus berbuat baik"], "key": "D", "key_text": "kita harus sabar dan terus berbuat baik", "score": 2}, {"id": 21, "type": "isian", "q": "Tuliskan pesan pokok QS. An-Nas!", "key": "Memohon perlindungan kepada Allah dari bisikan jahat setan (jin dan manusia).", "keywords": ["perlindungan", "setan", "jin", "bisikan", "manusia"], "score": 3}, {"id": 22, "type": "isian", "q": "Kebersihan adalah sebagian dari ......... (lengkapi hadis tentang kebersihan tersebut).", "key": "iman", "keywords": ["iman", "keimanan"], "score": 3}, {"id": 23, "type": "isian", "q": "Perhatikan urutan shalat berikut: takbiratul ihram, membaca Al-Fatihah, ........., i'tidal. Gerakan yang kosong adalah .........", "key": "ruku'", "keywords": ["ruku", "ruku'", "rukuk"], "score": 3}, {"id": 24, "type": "isian", "q": "Tuliskan satu contoh sikap sabar dan kerja keras yang dapat kamu teladani dari Nabi Nuh a.s.!", "key": "Contoh: tidak mudah menyerah saat belajar; tetap mengerjakan tugas sampai selesai; sabar menghadapi ejekan teman.", "keywords": ["tidak menyerah", "rajin", "sabar", "belajar", "tugas"], "score": 3}, {"id": 25, "type": "isian", "q": "Kan'an, anak Nabi Nuh a.s., tidak mau menaati ayahnya dan tidak mau naik kapal. Hikmah apa yang dapat kamu ambil dari kisah itu?", "key": "Kita harus taat kepada orang tua dan ajaran agama.", "keywords": ["taat", "orang tua", "patuh", "menuruti", "agama"], "score": 3}, {"id": 26, "type": "match", "premise": "Setelah membaca QS. Al-Falaq, kita merasa ...", "key": "D", "key_text": "Berani dan terlindungi", "score": 3}, {"id": 27, "type": "match", "premise": "Ar-Rahman artinya ...", "key": "A", "key_text": "Maha Pengasih", "score": 3}, {"id": 28, "type": "match", "premise": "Ar-Rahim artinya ...", "key": "G", "key_text": "Maha Penyayang", "score": 3}, {"id": 29, "type": "match", "premise": "Iqamah dikumandangkan sebagai tanda ...", "key": "F", "key_text": "Shalat berjamaah akan segera dimulai", "score": 3}, {"id": 30, "type": "match", "premise": "Kaum yang menolak ajakan Nabi Nuh a.s. ditenggelamkan oleh ...", "key": "C", "key_text": "Banjir besar", "score": 3}, {"id": 31, "type": "uraian", "q": "Tuliskan arti ayat pertama QS. An-Nas, lalu jelaskan pesan pokok surah tersebut!", "arabic": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ", "key": "Arti ayat 1: \"Katakanlah (Muhammad), aku berlindung kepada Tuhannya manusia.\" Pesan pokok: kita hanya memohon perlindungan kepada Allah dari bisikan jahat.", "rubric": "Arti ayat benar = 3; pesan pokok benar = 3. Jawaban sebagian benar = 1–2.", "score": 6}, {"id": 32, "type": "uraian", "q": "Sebutkan 2 bentuk kasih sayang Nabi Muhammad saw. kepada umatnya!", "key": "Menyayangi dan menyapa anak-anak dengan lembut; Mendoakan umatnya; Menolong orang yang kesulitan; Memaafkan orang yang berbuat salah.", "rubric": "Tiap bentuk kasih sayang yang tepat = 3 (maks. 6).", "score": 6}, {"id": 33, "type": "uraian", "q": "Jelaskan 3 contoh gaya hidup bersih, rapi, dan teratur yang dapat kamu lakukan di rumah atau di sekolah!", "key": "Bersih: mandi, menyikat gigi, membuang sampah pada tempatnya; Rapi: merapikan tempat tidur, buku, dan mainan; Teratur: belajar dan tidur pada waktunya.", "rubric": "Tiap contoh yang benar dan dijelaskan dengan bahasa sendiri = 2 (maks. 6).", "score": 6}, {"id": 34, "type": "uraian", "q": "Jelaskan perbedaan azan dan iqamah! Sebutkan juga satu contoh shalat fardu!", "key": "Azan: panggilan/tanda masuknya waktu shalat fardu. Iqamah: tanda shalat berjamaah akan segera dimulai. Contoh shalat fardu: Subuh/Zuhur/Asar/Magrib/Isya.", "rubric": "Pengertian azan benar = 2; pengertian iqamah benar = 2; contoh shalat fardu benar = 2.", "score": 6}, {"id": 35, "type": "uraian", "q": "Sebutkan 2 sikap sabar dan kerja keras Nabi Nuh a.s., lalu jelaskan bagaimana kamu menirunya saat belajar!", "key": "Sikap Nabi Nuh a.s.: sabar berdakwah walau dihina; bekerja keras membuat kapal. Meniru: tidak mudah menyerah mengerjakan tugas dan terus berlatih.", "rubric": "Dua sikap Nabi Nuh a.s. benar = 4 (masing-masing 2); cara meniru yang tepat = 2.", "score": 6}], "match_options": [{"id": "A", "text": "Maha Pengasih"}, {"id": "B", "text": "Tanda masuk waktu shalat"}, {"id": "C", "text": "Banjir besar"}, {"id": "D", "text": "Berani dan terlindungi"}, {"id": "E", "text": "Maha Kuasa"}, {"id": "F", "text": "Shalat berjamaah akan segera dimulai"}, {"id": "G", "text": "Maha Penyayang"}]}, "kelas-3": {"id": "kelas-3", "grade": "3", "title": "Kelas 3 - Fase B", "subtitle": "PAI & Budi Pekerti - Semester Ganjil", "themeColor": "#0D9488", "themeLight": "#CCFBF1", "themeDark": "#115E59", "accentColor": "#14B8A6", "totalQuestions": 40, "questions": [{"id": 1, "type": "pg", "q": "Mad thabi'i adalah bacaan yang dibaca panjang sebanyak ...", "arabic": null, "options": ["dua harakat", "empat harakat", "lima harakat", "enam harakat"], "key": "A", "key_text": "dua harakat", "score": 2}, {"id": 2, "type": "pg", "q": "Kata Al-Kautsar pada Surat Al-Kautsar artinya ...", "arabic": null, "options": ["nikmat yang banyak", "kemenangan", "pertolongan", "cahaya terang"], "key": "A", "key_text": "nikmat yang banyak", "score": 2}, {"id": 3, "type": "pg", "q": "Pada saat Surat Al-Kautsar diturunkan, kaum kafir Quraisy menyebut Nabi Muhammad saw. dengan sebutan ... (terputus dari keturunan).", "arabic": null, "options": ["al-amin", "siddiq", "abtar", "mukmin"], "key": "C", "key_text": "abtar", "score": 2}, {"id": 4, "type": "pg", "q": "Pesan pokok Surat Al-Kautsar adalah ...", "arabic": null, "options": ["membalas ejekan dengan ejekan", "bersyukur atas nikmat Allah dengan shalat dan berkurban", "menyimpan nikmat untuk diri sendiri", "takut kepada orang yang membenci"], "key": "B", "key_text": "bersyukur atas nikmat Allah dengan shalat dan berkurban", "score": 2}, {"id": 5, "type": "pg", "q": "Jumlah sifat wajib bagi Allah Swt. adalah ...", "arabic": null, "options": ["13 sifat", "20 sifat", "25 sifat", "99 sifat"], "key": "B", "key_text": "20 sifat", "score": 2}, {"id": 6, "type": "pg", "q": "Berikut ini yang termasuk sifat wajib bagi Allah Swt. adalah ...", "arabic": null, "options": ["Adam (tidak ada)", "Hudus (baru)", "Wujud (ada)", "Fana (rusak)"], "key": "C", "key_text": "Wujud (ada)", "score": 2}, {"id": 7, "type": "pg", "q": "Sifat mustahil bagi Allah Swt. artinya sifat yang ...", "arabic": null, "options": ["tidak mungkin ada pada Allah", "pasti ada pada Allah", "boleh ada dan boleh tidak", "hanya dimiliki manusia"], "key": "A", "key_text": "tidak mungkin ada pada Allah", "score": 2}, {"id": 8, "type": "pg", "q": "Allah Swt. boleh menurunkan hujan dan boleh tidak menurunkannya. Sifat ini disebut sifat ...", "arabic": null, "options": ["wajib", "mustahil", "tetap", "jaiz"], "key": "D", "key_text": "jaiz", "score": 2}, {"id": 9, "type": "pg", "q": "Kalimah thayyibah \"Masyaallah\" diucapkan ketika kita ...", "arabic": null, "options": ["akan melakukan sesuatu esok hari", "mendapat musibah", "mengagumi ciptaan atau kebaikan yang indah", "bersin"], "key": "C", "key_text": "mengagumi ciptaan atau kebaikan yang indah", "score": 2}, {"id": 10, "type": "pg", "q": "Kalimah thayyibah artinya ...", "arabic": null, "options": ["ucapan kotor", "ucapan yang baik", "nyanyian", "teriakan"], "key": "B", "key_text": "ucapan yang baik", "score": 2}, {"id": 11, "type": "pg", "q": "Doni gagal menjadi juara lomba. Ia berpikir, \"Pasti ada hikmah dari Allah.\" Sikap Doni menunjukkan sikap ...", "arabic": null, "options": ["berbaik sangka kepada Allah", "putus asa", "menyalahkan teman", "iri hati"], "key": "A", "key_text": "berbaik sangka kepada Allah", "score": 2}, {"id": 12, "type": "pg", "q": "Tulisan Arab kalimah thayyibah Insya Allah adalah ...", "arabic": null, "options": ["مَا شَاءَ اللَّهُ", "سُبْحَانَ اللَّهِ", "إِنْ شَاءَ اللَّهُ", "الْحَمْدُ لِلَّهِ"], "key": "C", "key_text": "إِنْ شَاءَ اللَّهُ", "score": 2}, {"id": 13, "type": "pg", "q": "Azan adalah ...", "arabic": null, "options": ["doa setelah shalat", "seruan untuk memberitahukan masuknya waktu shalat fardu", "bacaan sebelum makan", "tanda selesainya shalat"], "key": "B", "key_text": "seruan untuk memberitahukan masuknya waktu shalat fardu", "score": 2}, {"id": 14, "type": "pg", "q": "Orang yang mengumandangkan azan disebut ...", "arabic": null, "options": ["imam", "makmum", "muazin", "khatib"], "key": "C", "key_text": "muazin", "score": 2}, {"id": 15, "type": "pg", "q": "Lafal yang khas terdapat pada iqamah adalah ...", "arabic": null, "options": ["الصَّلَاةُ خَيْرٌ مِنَ النَّوْمِ ash-shalaatu khairum minan naum", "سُبْحَانَ اللَّهِ subhaanallaah", "أَسْتَغْفِرُ اللَّهَ astaghfirullaah", "قَدْ قَامَتِ الصَّلَاةُ qad qaamatish shalaah"], "key": "D", "key_text": "قَدْ قَامَتِ الصَّلَاةُ qad qaamatish shalaah", "score": 2}, {"id": 16, "type": "pg", "q": "Berikut ini yang termasuk lafal azan adalah ...", "arabic": null, "options": ["حَيَّ عَلَى الصَّلَاةِ hayya 'alash shalaah", "سُبْحَانَ اللَّهِ subhaanallaah", "الْحَمْدُ لِلَّهِ alhamdulillaah", "أَسْتَغْفِرُ اللَّهَ astaghfirullaah"], "key": "A", "key_text": "حَيَّ عَلَى الصَّلَاةِ hayya 'alash shalaah", "score": 2}, {"id": 17, "type": "pg", "q": "Sholawat adalah ...", "arabic": null, "options": ["doa sebelum makan", "doa dan pujian untuk Nabi Muhammad saw.", "bacaan setelah wudu", "lagu perjuangan"], "key": "B", "key_text": "doa dan pujian untuk Nabi Muhammad saw.", "score": 2}, {"id": 18, "type": "pg", "q": "Pada masa kecil, Nabi Muhammad saw. disusui dan diasuh oleh ...", "arabic": null, "options": ["Khadijah", "Fatimah", "Aisyah", "Halimah as-Sa'diyah"], "key": "D", "key_text": "Halimah as-Sa'diyah", "score": 2}, {"id": 19, "type": "pg", "q": "Nabi Muhammad saw. menjadi yatim piatu pada usia ... tahun.", "arabic": null, "options": ["6", "8", "12", "25"], "key": "A", "key_text": "6", "score": 2}, {"id": 20, "type": "pg", "q": "Penduduk Mekah menjuluki Nabi Muhammad saw. Al-Amin karena beliau terkenal ...", "arabic": null, "options": ["pandai berdagang saja", "kaya raya", "jujur dan dapat dipercaya", "kuat berperang"], "key": "C", "key_text": "jujur dan dapat dipercaya", "score": 2}, {"id": 21, "type": "pg_kompleks", "q": "Pilihlah DUA pesan pokok Surat Al-Kautsar!", "arabic": null, "options": [{"id": "A", "text": "Mengerjakan shalat hanya karena Allah"}, {"id": "B", "text": "Berkurban (menyembelih hewan) karena Allah"}, {"id": "C", "text": "Membalas ejekan dengan ejekan"}, {"id": "D", "text": "Menyimpan nikmat tanpa berbagi"}, {"id": "E", "text": "Takut kepada orang yang membenci"}], "key": ["A", "B"], "key_text": "[A] Mengerjakan shalat hanya karena Allah, [B] Berkurban (menyembelih hewan) karena Allah", "score": 2}, {"id": 22, "type": "pg_kompleks", "q": "Pilihlah DUA yang termasuk sifat mustahil bagi Allah Swt.!", "arabic": null, "options": [{"id": "A", "text": "Adam (tidak ada)"}, {"id": "B", "text": "Hudus (baru)"}, {"id": "C", "text": "Wujud (ada)"}, {"id": "D", "text": "Qidam (terdahulu)"}, {"id": "E", "text": "Baqa' (kekal)"}], "key": ["A", "B"], "key_text": "[A] Adam (tidak ada), [B] Hudus (baru)", "score": 2}, {"id": 23, "type": "pg_kompleks", "q": "Pilihlah TIGA hikmah berbaik sangka kepada Allah Swt.!", "arabic": null, "options": [{"id": "A", "text": "Hati menjadi tenang"}, {"id": "B", "text": "Tidak mudah putus asa"}, {"id": "C", "text": "Mudah marah"}, {"id": "D", "text": "Suka mengeluh"}, {"id": "E", "text": "Lebih sabar dan bersyukur"}], "key": ["A", "B", "E"], "key_text": "[A] Hati menjadi tenang, [B] Tidak mudah putus asa, [E] Lebih sabar dan bersyukur", "score": 2}, {"id": 24, "type": "pg_kompleks", "q": "Pilihlah DUA jawaban azan yang tidak sama dengan lafal azan!", "arabic": null, "options": [{"id": "A", "text": "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ laa haula wa laa quwwata illaa billaah"}, {"id": "B", "text": "اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ Allaahu akbar Allaahu akbar"}, {"id": "C", "text": "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ asyhadu an laa ilaaha illallaah"}, {"id": "D", "text": "صَدَقْتَ وَبَرِرْتَ shadaqta wa bararta"}, {"id": "E", "text": "لَا إِلَٰهَ إِلَّا اللَّهُ laa ilaaha illallaah"}], "key": ["A", "D"], "key_text": "[A] لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ laa haula wa laa quwwata illaa billaah, [D] صَدَقْتَ وَبَرِرْتَ shadaqta wa bararta", "score": 2}, {"id": 25, "type": "pg_kompleks", "q": "Pilihlah TIGA kebiasaan orang Arab sebelum Islam datang!", "arabic": null, "options": [{"id": "A", "text": "Menyembah berhala"}, {"id": "B", "text": "Mengubur bayi perempuan hidup-hidup"}, {"id": "C", "text": "Bersedekah kepada fakir miskin"}, {"id": "D", "text": "Menolong anak yatim"}, {"id": "E", "text": "Berjudi dan minum minuman keras"}], "key": ["A", "B", "E"], "key_text": "[A] Menyembah berhala, [B] Mengubur bayi perempuan hidup-hidup, [E] Berjudi dan minum minuman keras", "score": 2}, {"id": 26, "type": "isian", "q": "Surat Al-Kautsar adalah surat ke ......... dalam Al-Qur'an.", "arabic": null, "key": "108 (seratus delapan)", "keywords": ["108"], "score": 2}, {"id": 27, "type": "isian", "q": "Sifat wajib Allah Swt. yang artinya \"ada\" adalah .........", "arabic": null, "key": "Wujud", "keywords": ["wujud"], "score": 2}, {"id": 28, "type": "isian", "q": "Kalimah thayyibah yang artinya \"segala puji bagi Allah\" adalah .........", "arabic": null, "key": "Alhamdulillah", "keywords": ["alhamdulillah"], "score": 2}, {"id": 29, "type": "isian", "q": "Orang yang mengumandangkan azan disebut muazin, sedangkan orang yang mendengarkan azan disebut .........", "arabic": null, "key": "pendengar azan (mustami'); jawaban lain yang bermakna pendengar azan diterima", "keywords": ["pendengar azan", "jawaban lain yang bermakna pendengar azan diterima"], "score": 2}, {"id": 30, "type": "isian", "q": "Nabi Muhammad saw. dilahirkan pada hari .........", "arabic": null, "key": "Senin (12 Rabiul Awal, Tahun Gajah)", "keywords": ["senin"], "score": 2}, {"id": 31, "type": "match", "premise": "Iqamah adalah ...", "key": "D", "key_text": "Tanda shalat berjamaah segera dimulai", "score": 2}, {"id": 32, "type": "match", "premise": "Sifat mustahil Hudus artinya ...", "key": "B", "key_text": "Baru", "score": 2}, {"id": 33, "type": "match", "premise": "Nama lain berbaik sangka kepada Allah adalah ...", "key": "G", "key_text": "Husnuzan", "score": 2}, {"id": 34, "type": "match", "premise": "Pendeta yang mengetahui tanda kenabian Nabi Muhammad saw. adalah ...", "key": "C", "key_text": "Buhaira", "score": 2}, {"id": 35, "type": "match", "premise": "Surat yang turun di Mekah sebelum Nabi hijrah disebut surat ...", "key": "F", "key_text": "Makkiyah", "score": 2}, {"id": 36, "type": "uraian", "q": "Jelaskan sebab Allah Swt. menurunkan Surat Al-Kautsar kepada Nabi Muhammad saw.!", "arabic": null, "key": "Kaum kafir Quraisy mengejek Nabi sebagai \"abtar\" (terputus keturunannya). Allah menghibur Nabi dengan menurunkan Surat Al-Kautsar yang menjanjikan nikmat yang banyak. Menyebut ejekan/hinaan kaum Quraisy = 3; menyebut Allah menghibur/memberi nikmat yang banyak = 3.", "rubric": "Penilaian sesuai kelengkapan dan ketepatan penjelasan.", "score": 6}, {"id": 37, "type": "uraian", "q": "Allah Swt. memiliki asmaul husna Al-Wahhab (Maha Pemberi). Sebutkan 3 contoh teladan dari Al-Wahhab dalam kehidupan sehari-hari!", "arabic": null, "key": "Berbagi bekal dengan teman Memberi hadiah/bantuan tanpa mengharap balasan Meminjamkan alat tulis kepada teman yang membutuhkan", "rubric": "Tiap contoh yang tepat = 2 (maks. 6).", "score": 6}, {"id": 38, "type": "uraian", "q": "Sebutkan 3 contoh sikap berbaik sangka kepada Allah Swt. dalam tindakan nyata sehari-hari!", "arabic": null, "key": "Tetap berusaha dan berdoa saat sakit Tetap bersyukur dan sabar ketika gagal Tidak mengeluh dan yakin ada hikmah di balik kejadian", "rubric": "Tiap contoh tindakan nyata yang tepat = 2 (maks. 6).", "score": 6}, {"id": 39, "type": "uraian", "q": "Jelaskan 3 adab mengumandangkan azan!", "arabic": null, "key": "Dalam keadaan suci (berwudu) Menghadap kiblat Berdiri dan bersuara lantang serta jelas Tidak tergesa-gesa dan mengumandangkan lafal dengan benar", "rubric": "Tiap adab yang benar dan dijelaskan = 2 (maks. 6).", "score": 6}, {"id": 40, "type": "uraian", "q": "Jelaskan cara Nabi Muhammad saw. menyelesaikan perselisihan peletakan Hajar Aswad dan gelar yang beliau peroleh!", "arabic": null, "key": "Nabi meletakkan Hajar Aswad di atas selembar kain. Wakil tiap suku memegang ujung kain bersama-sama, lalu Nabi meletakkan batu itu di tempatnya. Penduduk Mekah menjulukinya Al-Amin (yang dapat dipercaya). Cara menyelesaikan (kain dan dipegang bersama) = 4; gelar Al-Amin = 2.", "rubric": "Penilaian sesuai kelengkapan dan ketepatan penjelasan.", "score": 6}], "match_options": [{"id": "A", "text": "Madaniyah"}, {"id": "B", "text": "Baru"}, {"id": "C", "text": "Buhaira"}, {"id": "D", "text": "Tanda shalat berjamaah segera dimulai"}, {"id": "E", "text": "Terdahulu"}, {"id": "F", "text": "Makkiyah"}, {"id": "G", "text": "Husnuzan"}]}, "kelas-4": {"id": "kelas-4", "grade": "4", "title": "Kelas 4 - Fase B", "subtitle": "PAI & Budi Pekerti - Semester Ganjil", "themeColor": "#7C3AED", "themeLight": "#F3E8FF", "themeDark": "#581C87", "accentColor": "#8B5CF6", "totalQuestions": 40, "questions": [{"id": 1, "type": "pg", "q": "Surat yang menjelaskan tentang pertolongan dan kemenangan dari Allah Swt. adalah surat ...", "arabic": null, "options": ["Al-Kautsar", "Al-Ikhlas", "Al-Falaq", "An-Nashr"], "key": "D", "key_text": "An-Nashr", "score": 2}, {"id": 2, "type": "pg", "q": "Surat An-Nashr adalah surat ke ... dalam Al-Qur'an.", "arabic": null, "options": ["108", "109", "110", "111"], "key": "C", "key_text": "110", "score": 2}, {"id": 3, "type": "pg", "q": "Lengkapilah potongan ayat berikut agar sesuai dengan Surat An-Nashr!", "arabic": "إِذَا جَاءَ نَصْرُ اللَّهِ ....", "options": ["وَالْعَصْرِ", "وَالضُّحَى", "وَالْفَتْحُ", "وَالْفَجْرِ"], "key": "C", "key_text": "وَالْفَتْحُ", "score": 2}, {"id": 4, "type": "pg", "q": "Pesan pokok Surat An-Nashr adalah ...", "arabic": null, "options": ["menyombongkan diri saat menang", "bertasbih, bertahmid, dan beristigfar kepada Allah ketika mendapat kemenangan", "membalas dendam kepada lawan", "berpesta tanpa mengingat Allah"], "key": "B", "key_text": "bertasbih, bertahmid, dan beristigfar kepada Allah ketika mendapat kemenangan", "score": 2}, {"id": 5, "type": "pg", "q": "Allah Swt. disebut Al-Wahhab. Artinya Allah ...", "arabic": null, "options": ["Maha Pemberi", "Maha Penerima", "Maha Pelupa", "Maha Pemarah"], "key": "A", "key_text": "Maha Pemberi", "score": 2}, {"id": 6, "type": "pg", "q": "Asmaul husna Al-Fattah artinya ...", "arabic": null, "options": ["Maha Penutup", "Maha Pemarah", "Maha Penghukum", "Maha Pembuka (pemberi jalan keluar)"], "key": "D", "key_text": "Maha Pembuka (pemberi jalan keluar)", "score": 2}, {"id": 7, "type": "pg", "q": "Perilaku yang sesuai dengan keteladanan asmaul husna Al-Latif adalah ...", "arabic": null, "options": ["berkata kasar kepada adik", "berbicara dan bersikap lemah lembut kepada orang lain", "membentak teman", "bersikap acuh kepada tetangga"], "key": "B", "key_text": "berbicara dan bersikap lemah lembut kepada orang lain", "score": 2}, {"id": 8, "type": "pg", "q": "Rina selalu berbagi bekal dan meminjamkan alat tulis kepada teman yang membutuhkan tanpa mengharap balasan. Perilaku Rina meneladani asmaul husna ...", "arabic": null, "options": ["Al-Fattah", "Al-Latif", "Al-Wahhab", "Al-Ghaffar"], "key": "C", "key_text": "Al-Wahhab", "score": 2}, {"id": 9, "type": "pg", "q": "Berikut ini yang termasuk akhlak yang baik terhadap keluarga adalah ...", "arabic": null, "options": ["bertengkar dengan saudara", "tidak peduli kepada keluarga", "berkata kasar kepada orang tua", "saling menyayangi dan menghormati"], "key": "D", "key_text": "saling menyayangi dan menghormati", "score": 2}, {"id": 10, "type": "pg", "q": "Perilaku yang baik terhadap orang tua adalah ...", "arabic": null, "options": ["membantu pekerjaan rumah tanpa disuruh", "membantah nasihat orang tua", "berbicara dengan nada tinggi", "pura-pura tidak mendengar panggilan"], "key": "A", "key_text": "membantu pekerjaan rumah tanpa disuruh", "score": 2}, {"id": 11, "type": "pg", "q": "Adik menangis karena mainannya rusak. Perilaku kakak yang menunjukkan kasih sayang adalah ...", "arabic": null, "options": ["memarahi adik", "mengejek adik", "menghibur dan membantu memperbaiki mainannya", "meninggalkan adik sendirian"], "key": "C", "key_text": "menghibur dan membantu memperbaiki mainannya", "score": 2}, {"id": 12, "type": "pg", "q": "Ayah tidak jadi membelikan sepatu baru karena uangnya dipakai untuk biaya berobat nenek. Budi sedih. Tindakan Budi yang paling tepat sebagai wujud berbaik sangka kepada Allah dan akhlak kepada keluarga adalah ...", "arabic": null, "options": ["merajuk dan marah-marah kepada ayah", "menerima dengan sabar, yakin Allah memberi yang terbaik, dan menghormati keputusan ayah", "menyalahkan nenek yang sakit", "memaksa ayah membeli sepatu hari itu juga"], "key": "B", "key_text": "menerima dengan sabar, yakin Allah memberi yang terbaik, dan menghormati keputusan ayah", "score": 2}, {"id": 13, "type": "pg", "q": "Shalat rawatib dikerjakan ...", "arabic": null, "options": ["hanya di tengah malam", "sebelum atau sesudah shalat fardu", "setelah matahari terbit saja", "ketika hujan turun"], "key": "B", "key_text": "sebelum atau sesudah shalat fardu", "score": 2}, {"id": 14, "type": "pg", "q": "Shalat dhuha adalah shalat sunnah yang dikerjakan ketika ...", "arabic": null, "options": ["menjelang waktu Subuh", "setelah matahari terbenam", "matahari mulai naik hingga menjelang waktu Zuhur", "tengah malam setelah tidur"], "key": "C", "key_text": "matahari mulai naik hingga menjelang waktu Zuhur", "score": 2}, {"id": 15, "type": "pg", "q": "Shalat tahajud adalah shalat sunnah yang dikerjakan ...", "arabic": null, "options": ["pada malam hari setelah bangun tidur", "sesudah shalat Subuh", "sebelum shalat Magrib", "pada siang hari"], "key": "A", "key_text": "pada malam hari setelah bangun tidur", "score": 2}, {"id": 16, "type": "pg", "q": "Shalat tathawwu' adalah nama lain dari shalat ...", "arabic": null, "options": ["fardu", "jenazah", "Jumat", "sunnah"], "key": "D", "key_text": "sunnah", "score": 2}, {"id": 17, "type": "pg", "q": "Wahyu pertama diterima Nabi Muhammad saw. di ...", "arabic": null, "options": ["Gua Tsur", "Masjidil Haram", "Gua Hira", "Bukit Uhud"], "key": "C", "key_text": "Gua Hira", "score": 2}, {"id": 18, "type": "pg", "q": "Cara Nabi Muhammad saw. berdakwah pada periode Mekah adalah ...", "arabic": null, "options": ["mula-mula secara sembunyi-sembunyi, kemudian terang-terangan", "dengan peperangan", "dengan paksaan", "dengan ancaman"], "key": "A", "key_text": "mula-mula secara sembunyi-sembunyi, kemudian terang-terangan", "score": 2}, {"id": 19, "type": "pg", "q": "Mukjizat adalah ...", "arabic": null, "options": ["permainan sulap", "kepandaian manusia biasa", "hasil latihan bertahun-tahun", "kejadian luar biasa yang diberikan Allah kepada nabi dan rasul untuk membuktikan kebenarannya"], "key": "D", "key_text": "kejadian luar biasa yang diberikan Allah kepada nabi dan rasul untuk membuktikan kebenarannya", "score": 2}, {"id": 20, "type": "pg", "q": "Nabi Muhammad saw. dihina dan dilempari kotoran oleh kaum Quraisy. Sikap yang beliau tunjukkan adalah ...", "arabic": null, "options": ["membalas dengan melempar balik", "sabar dan tidak membalas keburukan dengan keburukan", "berhenti berdakwah", "marah dan menyerang"], "key": "B", "key_text": "sabar dan tidak membalas keburukan dengan keburukan", "score": 2}, {"id": 21, "type": "pg_kompleks", "q": "Pilihlah DUA lafal yang termasuk bacaan Surat An-Nashr!", "arabic": null, "options": [{"id": "A", "text": "وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا"}, {"id": "B", "text": "إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ"}, {"id": "C", "text": "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ"}, {"id": "D", "text": "قُلْ يَا أَيُّهَا الْكَافِرُونَ"}, {"id": "E", "text": "وَالْعَصْرِ"}], "key": ["A", "C"], "key_text": "[A] وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا, [C] فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ", "score": 2}, {"id": 22, "type": "pg_kompleks", "q": "Pilihlah TIGA ciri taubatan nasuha!", "arabic": null, "options": [{"id": "A", "text": "Menyesali perbuatan dosa"}, {"id": "B", "text": "Berhenti melakukan perbuatan dosa"}, {"id": "C", "text": "Mengulangi dosa jika ada kesempatan"}, {"id": "D", "text": "Berjanji tidak mengulangi dosa"}, {"id": "E", "text": "Merasa bangga setelah berbuat dosa"}], "key": ["A", "B", "D"], "key_text": "[A] Menyesali perbuatan dosa, [B] Berhenti melakukan perbuatan dosa, [D] Berjanji tidak mengulangi dosa", "score": 2}, {"id": 23, "type": "pg_kompleks", "q": "Pilihlah TIGA perilaku yang menunjukkan taat kepada orang tua!", "arabic": null, "options": [{"id": "A", "text": "Mematuhi nasihat yang baik"}, {"id": "B", "text": "Berbicara dengan sopan"}, {"id": "C", "text": "Membantah perintah orang tua"}, {"id": "D", "text": "Meminta izin sebelum pergi"}, {"id": "E", "text": "Pergi tanpa berpamitan"}], "key": ["A", "B", "D"], "key_text": "[A] Mematuhi nasihat yang baik, [B] Berbicara dengan sopan, [D] Meminta izin sebelum pergi", "score": 2}, {"id": 24, "type": "pg_kompleks", "q": "Pilihlah DUA niat shalat rawatib ba'diyah (dikerjakan sesudah shalat fardu)!", "arabic": null, "options": [{"id": "A", "text": "Ushallii sunnatazh zhuhri rak'ataini ba'diyyatan lillaahi ta'aalaa"}, {"id": "B", "text": "Ushallii sunnatazh zhuhri rak'ataini qabliyyatan lillaahi ta'aalaa"}, {"id": "C", "text": "Ushallii sunnatal maghribi rak'ataini ba'diyyatan lillaahi ta'aalaa"}, {"id": "D", "text": "Ushallii sunnatadh dhuhaa rak'ataini lillaahi ta'aalaa"}, {"id": "E", "text": "Ushallii sunnatat tahajjudi rak'ataini lillaahi ta'aalaa"}], "key": ["A", "C"], "key_text": "[A] Ushallii sunnatazh zhuhri rak'ataini ba'diyyatan lillaahi ta'aalaa, [C] Ushallii sunnatal maghribi rak'ataini ba'diyyatan lillaahi ta'aalaa", "score": 2}, {"id": 25, "type": "pg_kompleks", "q": "Pilihlah TIGA kandungan Surat Al-Muddatstsir yang benar!", "arabic": null, "options": [{"id": "A", "text": "Perintah bangun dan memberi peringatan"}, {"id": "B", "text": "Perintah mengagungkan Tuhan"}, {"id": "C", "text": "Perintah berhenti berdakwah"}, {"id": "D", "text": "Perintah membersihkan pakaian"}, {"id": "E", "text": "Perintah membalas hinaan dengan hinaan"}], "key": ["A", "B", "D"], "key_text": "[A] Perintah bangun dan memberi peringatan, [B] Perintah mengagungkan Tuhan, [D] Perintah membersihkan pakaian", "score": 2}, {"id": 26, "type": "isian", "q": "Nun sukun pada lafal مِنْ رَبِّهِمْ bertemu huruf ra'. Hukum bacaan tajwidnya adalah .........", "arabic": "Nun sukun pada lafal مِنْ رَبِّهِمْ bertemu huruf ra'. Hukum bacaan tajwidnya adalah .........", "key": "Idgham bilaghunnah (idgham tanpa dengung)", "keywords": ["idgham bilaghunnah"], "score": 2}, {"id": 27, "type": "isian", "q": "Pak Hasan sering memberi hadiah kepada anak yatim tanpa mengharap balasan. Pak Hasan meneladani asmaul husna .........", "arabic": null, "key": "Al-Wahhab", "keywords": ["al-wahhab"], "score": 2}, {"id": 28, "type": "isian", "q": "Nama lain dari berbakti kepada kedua orang tua adalah .........", "arabic": null, "key": "Birrul walidain", "keywords": ["birrul walidain"], "score": 2}, {"id": 29, "type": "isian", "q": "Jumlah rakaat minimal shalat dhuha adalah ......... rakaat.", "arabic": null, "key": "2 (dua)", "keywords": ["2"], "score": 2}, {"id": 30, "type": "isian", "q": "Wahyu pertama yang diturunkan kepada Nabi Muhammad saw. adalah Surat Al-......... ayat 1–5.", "arabic": null, "key": "'Alaq", "keywords": ["'alaq"], "score": 2}, {"id": 31, "type": "match", "premise": "Tahmid (الْحَمْدُ لِلَّهِ) artinya ...", "key": "D", "key_text": "Segala puji bagi Allah", "score": 2}, {"id": 32, "type": "match", "premise": "Asmaul husna Al-Latif artinya ...", "key": "B", "key_text": "Maha Lembut", "score": 2}, {"id": 33, "type": "match", "premise": "Silaturahmi artinya ...", "key": "F", "key_text": "Menyambung tali persaudaraan", "score": 2}, {"id": 34, "type": "match", "premise": "Hukum shalat tahajud adalah ...", "key": "G", "key_text": "Sunnah muakkad", "score": 2}, {"id": 35, "type": "match", "premise": "Berkhalwat artinya ...", "key": "A", "key_text": "Menyendiri di tempat sunyi untuk beribadah", "score": 2}, {"id": 36, "type": "uraian", "q": "Tuliskan lafal Surat An-Nashr ayat 1 dan 2 dengan huruf Arab!", "arabic": null, "key": "Ayat 1: إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ Ayat 2: وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا", "rubric": "Ayat 1 benar = 3; ayat 2 benar = 3. Kekeliruan kecil pada harakat = skor 2 untuk ayat tersebut.", "score": 6}, {"id": 37, "type": "uraian", "q": "Sebutkan 3 contoh sikap yang sesuai dengan asmaul husna Al-Fattah dalam kehidupan sehari-hari!", "arabic": null, "key": "Membantu teman menemukan cara menyelesaikan soal yang sulit Mencari jalan keluar ketika menghadapi masalah Tidak mudah menyerah dan terus berusaha mencari solusi", "rubric": "Tiap contoh yang tepat = 2 (maks. 6).", "score": 6}, {"id": 38, "type": "uraian", "q": "Sebutkan 3 hikmah atau manfaat berbuat baik kepada keluarga!", "arabic": null, "key": "Keluarga menjadi rukun dan bahagia Mendapat ridha orang tua dan kasih sayang Allah Mempererat tali persaudaraan Hidup menjadi tenteram", "rubric": "Tiap hikmah yang benar = 2 (maks. 6).", "score": 6}, {"id": 39, "type": "uraian", "q": "Fikri ingin shalat tahajud. Ia tidur setelah shalat Isya, lalu bangun pada sepertiga malam terakhir dan shalat tahajud. Apakah tindakan Fikri sudah tepat? Berikan alasanmu!", "arabic": null, "key": "Tepat. Tahajud dikerjakan pada malam hari setelah tidur dan bangun (setelah shalat Isya). Sepertiga malam terakhir adalah waktu yang sangat utama untuk berdoa dan beribadah. Menyatakan tepat = 1; alasan waktu tahajud (setelah tidur/setelah Isya) = 3; keutamaan sepertiga malam terakhir = 2.", "rubric": "Penilaian sesuai kelengkapan dan ketepatan penjelasan.", "score": 6}, {"id": 40, "type": "uraian", "q": "Sebutkan 3 mukjizat Nabi Muhammad saw.!", "arabic": null, "key": "Al-Qur'an (mukjizat terbesar) Isra' Mi'raj Membelah bulan Air memancar dari sela-sela jari beliau", "rubric": "Tiap mukjizat yang benar = 2 (maks. 6).", "score": 6}], "match_options": [{"id": "A", "text": "Menyendiri di tempat sunyi untuk beribadah"}, {"id": "B", "text": "Maha Lembut"}, {"id": "C", "text": "Wajib"}, {"id": "D", "text": "Segala puji bagi Allah"}, {"id": "E", "text": "Memutus hubungan"}, {"id": "F", "text": "Menyambung tali persaudaraan"}, {"id": "G", "text": "Sunnah muakkad"}]}, "kelas-5": {"id": "kelas-5", "grade": "5", "title": "Kelas 5 - Fase C", "subtitle": "PAI & Budi Pekerti - Semester Ganjil", "themeColor": "#E11D48", "themeLight": "#FFE4E6", "themeDark": "#881337", "accentColor": "#F43F5E", "totalQuestions": 45, "questions": [{"id": 1, "type": "pg", "q": "Surat yang diturunkan sebelum Nabi Muhammad saw. hijrah ke Madinah disebut surat Makkiyah. Q.S. Al-'Asr termasuk surat ...", "arabic": null, "options": ["Madaniyah", "Muhkamat", "Makkiyah", "Mutasyabihat"], "key": "C", "key_text": "Makkiyah", "score": 2}, {"id": 2, "type": "pg", "q": "Terjemahan ayat kedua Q.S. Al-'Asr berikut adalah ...", "arabic": "إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ", "options": ["demi masa", "kecuali orang-orang yang beriman", "saling menasihati dalam kebenaran", "sesungguhnya manusia benar-benar berada dalam kerugian"], "key": "D", "key_text": "sesungguhnya manusia benar-benar berada dalam kerugian", "score": 2}, {"id": 3, "type": "pg", "q": "Lengkapilah ayat ketiga Q.S. Al-'Asr berikut dengan lafal yang tepat!", "arabic": "وَتَوَاصَوْا بِالْحَقِّ وَ ....", "options": ["تَوَاصَوْا بِالصَّبْرِ", "اسْتَغْفِرْهُ", "فِي خُسْرٍ", "الْإِنْسَانَ"], "key": "A", "key_text": "تَوَاصَوْا بِالصَّبْرِ", "score": 2}, {"id": 4, "type": "pg", "q": "Lafal الصَّبْرِ dalam ayat ketiga Q.S. Al-'Asr dibaca \"ash-shabr\". Cara membaca alif lam pada lafal tersebut adalah ...", "arabic": "Lafal الصَّبْرِ dalam ayat ketiga Q.S. Al-'Asr dibaca \"ash-shabr\". Cara membaca alif lam pada lafal tersebut adalah ...", "options": ["lam dibaca jelas \"al-shabr\" (alif lam qamariyah)", "lam tidak dibaca dan huruf shad dibaca bertasydid (alif lam syamsiyah)", "lam dibaca panjang", "alif dibaca \"u\""], "key": "B", "key_text": "lam tidak dibaca dan huruf shad dibaca bertasydid (alif lam syamsiyah)", "score": 2}, {"id": 5, "type": "pg", "q": "Huruf hijaiyah ص , ب , ر jika disambung secara berurutan menjadi lafal ...", "arabic": "Huruf hijaiyah ص , ب , ر jika disambung secara berurutan menjadi lafal ...", "options": ["بصر", "ربص", "صبر", "برص"], "key": "C", "key_text": "صبر", "score": 2}, {"id": 6, "type": "pg", "q": "Perilaku yang paling sesuai dengan pesan pokok Q.S. Al-'Asr adalah ...", "arabic": null, "options": ["Rani mengisi waktu luang dengan belajar dan mengajak temannya shalat tepat waktu", "Rani bermain gawai sepanjang hari", "Rani menunda belajar sampai besok", "Rani membiarkan temannya berbuat salah"], "key": "A", "key_text": "Rani mengisi waktu luang dengan belajar dan mengajak temannya shalat tepat waktu", "score": 2}, {"id": 7, "type": "pg", "q": "Allah Swt. tidak segera menghukum hamba-Nya yang berbuat dosa dan memberi kesempatan untuk bertobat. Hal ini sesuai dengan asmaulhusna ...", "arabic": null, "options": ["Al-Wadud", "Al-Hakim", "Al-Halim", "Asy-Syakur"], "key": "C", "key_text": "Al-Halim", "score": 2}, {"id": 8, "type": "pg", "q": "Allah Swt. mencintai dan menyayangi hamba-Nya yang taat. Sifat ini sesuai dengan asmaulhusna ...", "arabic": null, "options": ["Al-Halim", "Al-Wadud", "Al-Hakim", "Asy-Syakur"], "key": "B", "key_text": "Al-Wadud", "score": 2}, {"id": 9, "type": "pg", "q": "Meneladani asmaulhusna Al-Hakim (Maha Bijaksana) dalam kehidupan sehari-hari dapat dilakukan dengan ...", "arabic": null, "options": ["memutuskan sesuatu sesuka hati", "mengambil keputusan dengan pertimbangan yang matang dan adil", "mudah marah ketika berbeda pendapat", "mengikuti ajakan teman tanpa berpikir"], "key": "B", "key_text": "mengambil keputusan dengan pertimbangan yang matang dan adil", "score": 2}, {"id": 10, "type": "pg", "q": "Dina berterima kasih dan menghargai usaha temannya, serta menyayangi semua teman di kelas. Perilaku Dina meneladani asmaulhusna ...", "arabic": null, "options": ["Al-Halim dan Al-Hakim", "Al-Qahhar dan Al-Jabbar", "Asy-Syakur dan Al-Wadud", "Al-Muzill dan Al-Mumit"], "key": "C", "key_text": "Asy-Syakur dan Al-Wadud", "score": 2}, {"id": 11, "type": "pg", "q": "Dzikir takbir adalah ucapan yang artinya ...", "arabic": null, "options": ["Maha Suci Allah (Subhanallah)", "Segala puji bagi Allah (Alhamdulillah)", "Tidak ada Tuhan selain Allah", "Allah Maha Besar (Allahu akbar)"], "key": "D", "key_text": "Allah Maha Besar (Allahu akbar)", "score": 2}, {"id": 12, "type": "pg", "q": "Doa yang dibaca sebelum makan adalah ...", "arabic": null, "options": ["رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ rabbighfir lii wa liwaalidayya", "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ bismillaahi tawakkaltu 'alallaah", "اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ allaahumma baarik lanaa fiimaa razaqtanaa wa qinaa 'adzaaban naar", "رَبِّ زِدْنِي عِلْمًا rabbi zidnii 'ilmaa"], "key": "C", "key_text": "اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ allaahumma baarik lanaa fiimaa razaqtanaa wa qinaa 'adzaaban naar", "score": 2}, {"id": 13, "type": "pg", "q": "Pernyataan yang tepat tentang perbedaan dzikir dan doa adalah ...", "arabic": null, "options": ["dzikir adalah mengingat dan menyebut Allah dengan pujian, doa adalah permohonan kepada Allah", "dzikir adalah permohonan, doa adalah pujian saja", "dzikir dan doa tidak boleh dilakukan bersamaan", "dzikir hanya untuk orang dewasa, doa untuk anak-anak"], "key": "A", "key_text": "dzikir adalah mengingat dan menyebut Allah dengan pujian, doa adalah permohonan kepada Allah", "score": 2}, {"id": 14, "type": "pg", "q": "Sikap yang menunjukkan tawakal adalah ...", "arabic": null, "options": ["tidak belajar tetapi hanya berdoa", "belajar dengan giat, lalu berdoa dan menyerahkan hasilnya kepada Allah", "belajar tanpa berdoa karena takut gagal", "menyontek agar nilainya bagus"], "key": "B", "key_text": "belajar dengan giat, lalu berdoa dan menyerahkan hasilnya kepada Allah", "score": 2}, {"id": 15, "type": "pg", "q": "Andi tidak belajar karena berpikir, \"Yang penting berdoa.\" Budi belajar sungguh-sungguh, lalu berdoa dan berserah diri kepada Allah. Penilaian yang paling tepat adalah ...", "arabic": null, "options": ["sikap Andi benar dan sikap Budi keliru", "sikap Andi dan Budi sama-sama benar", "sikap Andi dan Budi sama-sama keliru", "sikap Andi keliru karena tawakal harus diawali ikhtiar, sedangkan sikap Budi benar"], "key": "D", "key_text": "sikap Andi keliru karena tawakal harus diawali ikhtiar, sedangkan sikap Budi benar", "score": 2}, {"id": 16, "type": "pg", "q": "Salah satu syarat wajib berpuasa Ramadan adalah ...", "arabic": null, "options": ["berusia tiga tahun", "memiliki banyak harta", "balig (dewasa)", "pandai membaca Al-Qur'an"], "key": "C", "key_text": "balig (dewasa)", "score": 2}, {"id": 17, "type": "pg", "q": "Niat puasa Ramadan dilakukan pada ...", "arabic": null, "options": ["setelah shalat Zuhur", "saat berbuka puasa", "malam hari sebelum terbit fajar", "sore hari menjelang Magrib"], "key": "C", "key_text": "malam hari sebelum terbit fajar", "score": 2}, {"id": 18, "type": "pg", "q": "Paman tidak berpuasa Ramadan karena sakit dan kini sudah sembuh. Ketentuan yang harus dijalankan Paman adalah ...", "arabic": null, "options": ["mengganti puasa di hari lain sebanyak hari yang ditinggalkan", "tidak perlu melakukan apa-apa", "berpuasa dua kali sehari", "membayar zakat mal"], "key": "A", "key_text": "mengganti puasa di hari lain sebanyak hari yang ditinggalkan", "score": 2}, {"id": 19, "type": "pg", "q": "Dito makan dan minum karena lupa sedang berpuasa. Hukum puasa Dito adalah ...", "arabic": null, "options": ["batal dan harus mengganti", "tetap sah dan ia melanjutkan puasanya", "batal tanpa harus mengganti", "wajib membayar denda"], "key": "B", "key_text": "tetap sah dan ia melanjutkan puasanya", "score": 2}, {"id": 20, "type": "pg", "q": "Setelah berpuasa, Ani merasakan lapar dan menjadi lebih peduli membantu orang miskin. Hikmah puasa yang tampak pada Ani adalah ...", "arabic": null, "options": ["tubuh menjadi lebih tinggi", "ingin makan lebih banyak", "tidak mau bergaul dengan teman", "tumbuhnya rasa empati kepada orang yang kekurangan"], "key": "D", "key_text": "tumbuhnya rasa empati kepada orang yang kekurangan", "score": 2}, {"id": 21, "type": "pg", "q": "Peristiwa Fathu Makkah terjadi pada tahun ... Hijriah.", "arabic": null, "options": ["6", "7", "8", "10"], "key": "C", "key_text": "8", "score": 2}, {"id": 22, "type": "pg", "q": "Fathu Makkah terjadi karena kaum Quraisy beserta sekutunya melanggar perjanjian ...", "arabic": null, "options": ["Aqabah", "Hudaibiyah", "Madinah", "Badar"], "key": "B", "key_text": "Hudaibiyah", "score": 2}, {"id": 23, "type": "pg", "q": "Ketika memasuki kota Makkah pada Fathu Makkah, Rasulullah saw. bersikap ...", "arabic": null, "options": ["rendah hati dan memaafkan penduduk Makkah", "sombong atas kemenangan", "membalas dendam kepada penduduk Makkah", "mengusir seluruh penduduk Makkah"], "key": "A", "key_text": "rendah hati dan memaafkan penduduk Makkah", "score": 2}, {"id": 24, "type": "pg", "q": "Khutbah perpisahan pada peristiwa Haji Wada' disampaikan Rasulullah saw. di ...", "arabic": null, "options": ["Gua Hira", "Masjid Nabawi", "Gua Tsur", "Padang Arafah"], "key": "D", "key_text": "Padang Arafah", "score": 2}, {"id": 25, "type": "pg", "q": "Rafi dan Dimas bertengkar karena berebut bola. Dimas sudah meminta maaf. Meneladani sikap Rasulullah saw. pada peristiwa Fathu Makkah, sikap Rafi yang tepat adalah ...", "arabic": null, "options": ["membalas perbuatan Dimas", "mendiamkan Dimas selamanya", "mengadukan Dimas kepada semua teman", "memaafkan Dimas dan berdamai"], "key": "D", "key_text": "memaafkan Dimas dan berdamai", "score": 2}, {"id": 26, "type": "pg_kompleks", "q": "Pilihlah DUA perilaku yang sesuai dengan pesan pokok Q.S. Al-'Asr!", "arabic": null, "options": [{"id": "A", "text": "Memanfaatkan waktu untuk belajar dan beribadah"}, {"id": "B", "text": "Saling menasihati dalam kebenaran"}, {"id": "C", "text": "Menunda-nunda pekerjaan"}, {"id": "D", "text": "Membiarkan teman melakukan keburukan"}, {"id": "E", "text": "Bermain gawai sepanjang hari"}], "key": ["A", "B"], "key_text": "[A] Memanfaatkan waktu untuk belajar dan beribadah, [B] Saling menasihati dalam kebenaran", "score": 2}, {"id": 27, "type": "pg_kompleks", "q": "Pilihlah TIGA perilaku yang meneladani asmaulhusna Al-Halim!", "arabic": null, "options": [{"id": "A", "text": "Sabar dan tidak langsung marah"}, {"id": "B", "text": "Memaafkan teman yang berbuat khilaf"}, {"id": "C", "text": "Langsung membalas teman yang menyakiti"}, {"id": "D", "text": "Membentak teman yang berbuat salah"}, {"id": "E", "text": "Memberi kesempatan teman memperbaiki kesalahan"}], "key": ["A", "B", "E"], "key_text": "[A] Sabar dan tidak langsung marah, [B] Memaafkan teman yang berbuat khilaf, [E] Memberi kesempatan teman memperbaiki kesalahan", "score": 2}, {"id": 28, "type": "pg_kompleks", "q": "Pilihlah TIGA pernyataan yang benar tentang adab berdoa dan sikap tawakal!", "arabic": null, "options": [{"id": "A", "text": "Berdoa diawali dengan memuji Allah dan bershalawat"}, {"id": "B", "text": "Tawakal dilakukan setelah berikhtiar"}, {"id": "C", "text": "Cukup berdoa tanpa berusaha"}, {"id": "D", "text": "Tawakal berarti pasrah tanpa berusaha"}, {"id": "E", "text": "Berdoa dilakukan dengan khusyuk dan sungguh-sungguh"}], "key": ["A", "B", "E"], "key_text": "[A] Berdoa diawali dengan memuji Allah dan bershalawat, [B] Tawakal dilakukan setelah berikhtiar, [E] Berdoa dilakukan dengan khusyuk dan sungguh-sungguh", "score": 2}, {"id": 29, "type": "pg_kompleks", "q": "Pilihlah DUA tindakan yang membatalkan puasa!", "arabic": null, "options": [{"id": "A", "text": "Makan dan minum dengan sengaja"}, {"id": "B", "text": "Muntah dengan sengaja"}, {"id": "C", "text": "Tidur siang"}, {"id": "D", "text": "Mandi"}, {"id": "E", "text": "Membaca Al-Qur'an"}], "key": ["A", "B"], "key_text": "[A] Makan dan minum dengan sengaja, [B] Muntah dengan sengaja", "score": 2}, {"id": 30, "type": "pg_kompleks", "q": "Pilihlah TIGA hikmah yang dapat diteladani dari peristiwa Fathu Makkah!", "arabic": null, "options": [{"id": "A", "text": "Memaafkan orang yang pernah menyakiti"}, {"id": "B", "text": "Bersikap rendah hati saat meraih kemenangan"}, {"id": "C", "text": "Membalas dendam kepada musuh"}, {"id": "D", "text": "Menyombongkan diri saat menang"}, {"id": "E", "text": "Menyelesaikan masalah secara damai tanpa kekerasan"}], "key": ["A", "B", "E"], "key_text": "[A] Memaafkan orang yang pernah menyakiti, [B] Bersikap rendah hati saat meraih kemenangan, [E] Menyelesaikan masalah secara damai tanpa kekerasan", "score": 2}, {"id": 31, "type": "isian", "q": "Ayat ketiga Q.S. Al-'Asr memerintahkan kita saling menasihati dalam kebenaran dan dalam .........", "arabic": null, "key": "kesabaran", "keywords": ["kesabaran"], "score": 2}, {"id": 32, "type": "isian", "q": "Asmaulhusna Asy-Syakur artinya .........", "arabic": null, "key": "Maha Mensyukuri (Maha Menghargai/Berterima kasih)", "keywords": ["maha mensyukuri"], "score": 2}, {"id": 33, "type": "isian", "q": "Kalimat tahmid (Alhamdulillah) artinya .........", "arabic": null, "key": "Segala puji bagi Allah", "keywords": ["segala puji bagi allah"], "score": 2}, {"id": 34, "type": "isian", "q": "Puasa berakhir ketika .........", "arabic": null, "key": "matahari terbenam (waktu Magrib)", "keywords": ["matahari terbenam"], "score": 2}, {"id": 35, "type": "isian", "q": "Haji terakhir Rasulullah saw. yang disertai khutbah perpisahan disebut Haji .........", "arabic": null, "key": "Wada'", "keywords": ["wada'"], "score": 2}, {"id": 36, "type": "match", "premise": "Pesan pokok Q.S. Al-'Asr adalah ...", "key": "G", "key_text": "Memanfaatkan waktu dengan iman, amal saleh, dan saling menasihati", "score": 2}, {"id": 37, "type": "match", "premise": "Al-Hakim artinya ...", "key": "A", "key_text": "Maha Bijaksana", "score": 2}, {"id": 38, "type": "match", "premise": "Kalimat tasbih (Subhanallah) artinya ...", "key": "E", "key_text": "Maha Suci Allah", "score": 2}, {"id": 39, "type": "match", "premise": "Sahur adalah ...", "key": "B", "key_text": "Makan dan minum menjelang Subuh sebelum berpuasa", "score": 2}, {"id": 40, "type": "match", "premise": "Fathu Makkah adalah ...", "key": "C", "key_text": "Pembebasan kota Makkah oleh Rasulullah saw. dan kaum muslimin", "score": 2}, {"id": 41, "type": "uraian", "q": "Menurut Q.S. Al-'Asr, sebutkan dua hal yang harus dilakukan agar manusia tidak merugi!", "arabic": null, "key": "Beriman dan beramal saleh Saling menasihati dalam kebenaran Saling menasihati dalam kesabaran", "rubric": "Tiap hal yang benar = 2 (maks. 4).", "score": 4}, {"id": 42, "type": "uraian", "q": "Jelaskan makna asmaulhusna Al-Halim dan berikan satu contoh perilaku yang meneladaninya!", "arabic": null, "key": "Al-Halim: Maha Penyantun, tidak segera menghukum hamba yang berbuat salah Contoh: sabar dan memaafkan teman yang berbuat salah", "rubric": "Makna benar = 2; contoh perilaku tepat = 2.", "score": 4}, {"id": 43, "type": "uraian", "q": "Rendi putus asa dan tidak mau berusaha lagi karena doanya belum dikabulkan. Berikan penilaianmu terhadap sikap Rendi, lalu berikan nasihat berdasarkan sikap tawakal!", "arabic": null, "key": "Sikap Rendi keliru karena putus asa. Nasihat: tetap berusaha dan berdoa, lalu bertawakal; Allah mengabulkan doa pada waktu yang terbaik; terimalah hasilnya dengan lapang dada. Penilaian bahwa sikap keliru disertai alasan = 2; nasihat berdasarkan tawakal = 2.", "rubric": "Penilaian sesuai kelengkapan dan ketepatan penjelasan.", "score": 4}, {"id": 44, "type": "uraian", "q": "Sebutkan satu hikmah puasa beserta alasannya!", "arabic": null, "key": "Contoh: melatih kesabaran, karena menahan lapar, haus, dan amarah Contoh: menumbuhkan empati, karena merasakan lapar seperti orang miskin Contoh: melatih disiplin, karena puasa dikerjakan tepat waktu", "rubric": "Hikmah yang benar = 2; alasan yang tepat = 2.", "score": 4}, {"id": 45, "type": "uraian", "q": "Sebutkan dua sikap Rasulullah saw. pada peristiwa Fathu Makkah yang dapat diteladani!", "arabic": null, "key": "Memaafkan penduduk Makkah Rendah hati dan tidak sombong saat menang Tidak membalas dendam sehingga tidak terjadi pertumpahan darah", "rubric": "Tiap sikap yang benar = 2 (maks. 4).", "score": 4}], "match_options": [{"id": "A", "text": "Maha Bijaksana"}, {"id": "B", "text": "Makan dan minum menjelang Subuh sebelum berpuasa"}, {"id": "C", "text": "Pembebasan kota Makkah oleh Rasulullah saw. dan kaum muslimin"}, {"id": "D", "text": "Allah Maha Besar"}, {"id": "E", "text": "Maha Suci Allah"}, {"id": "F", "text": "Makan saat berbuka puasa"}, {"id": "G", "text": "Memanfaatkan waktu dengan iman, amal saleh, dan saling menasihati"}]}, "kelas-6": {"id": "kelas-6", "grade": "6", "title": "Kelas 6 - Fase C", "subtitle": "PAI & Budi Pekerti - Semester Ganjil", "themeColor": "#18181B", "themeLight": "#F4F4F5", "themeDark": "#09090B", "accentColor": "#D4F479", "totalQuestions": 45, "questions": [{"id": 1, "type": "pg", "q": "Perhatikan arti Q.S. Al-Insyirah ayat 7 berikut! Rani telah selesai mengerjakan PR. Penerapan kandungan ayat tersebut yang paling tepat adalah ... \"Maka apabila engkau telah selesai (dari suatu urusan), tetaplah bekerja keras (untuk urusan yang lain).\"", "arabic": "فَإِذَا فَرَغْتَ فَانْصَبْ", "options": ["Rani langsung beristirahat total seharian", "Rani menunda semua pekerjaan berikutnya", "Rani mengisi waktu dengan membaca atau mengaji setelah PR selesai", "Rani bermain tanpa batas waktu"], "key": "C", "key_text": "Rani mengisi waktu dengan membaca atau mengaji setelah PR selesai", "score": 2}, {"id": 2, "type": "pg", "q": "Di Thaif, Nabi Muhammad saw. dilempari batu, tetapi beliau tidak membalas dan tetap berdoa kepada Allah. Jika sikap ini diterapkan siswa saat menghadapi kesulitan belajar, sikap yang tepat adalah ...", "arabic": null, "options": ["cepat menyerah dan menyalahkan keadaan", "membalas kesulitan dengan kemarahan", "mengeluh dan berhenti belajar", "tangguh, sabar, dan mengandalkan pertolongan Allah"], "key": "D", "key_text": "tangguh, sabar, dan mengandalkan pertolongan Allah", "score": 2}, {"id": 3, "type": "pg", "q": "Huruf yang berhukum qalqalah pada potongan ayat berikut adalah ...", "arabic": "أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ", "options": ["حْ (ha)", "دْ (dal)", "شْ (syin)", "مْ (mim)"], "key": "B", "key_text": "دْ (dal)", "score": 2}, {"id": 4, "type": "pg", "q": "Perhatikan potongan-potongan ayat Surah Al-Insyirah berikut! Urutan yang benar sesuai mushaf adalah ...", "arabic": "(1) فَإِنَّ مَعَ الْعُسْرِ يُسْرًا (2) وَرَفَعْنَا لَكَ ذِكْرَكَ (3) إِنَّ مَعَ الْعُسْرِ يُسْرًا (4) وَإِلَىٰ رَبِّكَ فَارْغَبْ", "options": ["(1) – (2) – (3) – (4)", "(2) – (1) – (3) – (4)", "(3) – (2) – (1) – (4)", "(4) – (3) – (2) – (1)"], "key": "B", "key_text": "(2) – (1) – (3) – (4)", "score": 2}, {"id": 5, "type": "pg", "q": "Hikmah yang dapat diterapkan dari Surah Al-Insyirah ayat 5–6 dalam kehidupan sehari-hari adalah ...", "arabic": null, "options": ["menghindari semua pekerjaan yang sulit", "menunggu kemudahan datang tanpa berusaha", "tidak mudah putus asa karena setiap kesulitan akan diikuti kemudahan", "menyalahkan orang lain ketika gagal"], "key": "C", "key_text": "tidak mudah putus asa karena setiap kesulitan akan diikuti kemudahan", "score": 2}, {"id": 6, "type": "pg", "q": "Raka dan Dika melihat temannya diejek oleh sekelompok anak. Raka membela temannya dan melaporkan kepada guru. Sikap Raka mencerminkan penerapan asmaulhusna ... (Maha Melindungi/Penolong).", "arabic": null, "options": ["Al-Hamid", "Al-Waliyy", "Al-Adl", "As-Sabur"], "key": "B", "key_text": "Al-Waliyy", "score": 2}, {"id": 7, "type": "pg", "q": "Al-Waliyy (الْوَلِيُّ) artinya ...", "arabic": "Al-Waliyy (الْوَلِيُّ) artinya ...", "options": ["Maha Adil", "Maha Penyabar", "Maha Terpuji", "Maha Melindungi dan Maha Penolong"], "key": "D", "key_text": "Maha Melindungi dan Maha Penolong", "score": 2}, {"id": 8, "type": "pg", "q": "Kita mengucapkan alhamdulillah karena Allah Swt. adalah Al-Hamid, yang artinya ...", "arabic": null, "options": ["Maha Terpuji", "Maha Mengetahui", "Maha Perkasa", "Maha Pemaaf"], "key": "A", "key_text": "Maha Terpuji", "score": 2}, {"id": 9, "type": "pg", "q": "Percobaan sains Dina gagal berkali-kali, tetapi ia tidak putus asa dan mencobanya lagi dengan tenang. Sikap Dina meneladani asmaulhusna ...", "arabic": null, "options": ["As-Sabur", "Al-Adl", "Al-Hamid", "Al-Waliyy"], "key": "A", "key_text": "As-Sabur", "score": 2}, {"id": 10, "type": "pg", "q": "Sikap yang mencerminkan keadilan, kesabaran, rendah hati, dan kepedulian sekaligus adalah ...", "arabic": null, "options": ["Naufal memilih tugas yang paling mudah untuk dirinya sendiri", "Naufal membagi tugas kelompok secara adil, sabar mendengar pendapat teman, tidak sombong, dan membantu anggota yang kesulitan", "Naufal marah ketika pendapatnya ditolak", "Naufal hanya membantu teman dekatnya"], "key": "B", "key_text": "Naufal membagi tugas kelompok secara adil, sabar mendengar pendapat teman, tidak sombong, dan membantu anggota yang kesulitan", "score": 2}, {"id": 11, "type": "pg", "q": "Sikap yang mencerminkan ukhuwah Islamiyah (persaudaraan sesama muslim) adalah ...", "arabic": null, "options": ["memilih-milih teman berdasarkan kekayaan", "menasihati teman dengan kata-kata kasar", "membiarkan teman berbuat kesalahan", "saling menghormati, menasihati dengan bijaksana, dan memberi teladan yang baik"], "key": "D", "key_text": "saling menghormati, menasihati dengan bijaksana, dan memberi teladan yang baik", "score": 2}, {"id": 12, "type": "pg", "q": "Dimas menjenguk temannya yang sakit dan mendamaikan dua temannya yang berselisih. Tindakan Dimas ...", "arabic": null, "options": ["melemahkan persaudaraan", "tidak berhubungan dengan persaudaraan", "memperkuat ukhuwah Islamiyah", "menimbulkan perpecahan"], "key": "C", "key_text": "memperkuat ukhuwah Islamiyah", "score": 2}, {"id": 13, "type": "pg", "q": "Perilaku yang tidak sesuai dengan nilai ukhuwah wathaniyah (persaudaraan sebangsa) adalah ...", "arabic": null, "options": ["mengejek teman karena berasal dari daerah yang berbeda", "bergotong royong membersihkan lingkungan", "menghormati perbedaan suku dan daerah", "menjaga persatuan dan kesatuan"], "key": "A", "key_text": "mengejek teman karena berasal dari daerah yang berbeda", "score": 2}, {"id": 14, "type": "pg", "q": "Perilaku yang mencerminkan ukhuwah wathaniyah adalah ...", "arabic": null, "options": ["mengutamakan kelompok sendiri saja", "menolak bekerja sama dengan teman beda suku", "mementingkan kepentingan pribadi", "menghormati perbedaan daerah, mengutamakan kepentingan bersama, dan bergotong royong"], "key": "D", "key_text": "menghormati perbedaan daerah, mengutamakan kepentingan bersama, dan bergotong royong", "score": 2}, {"id": 15, "type": "pg", "q": "Tindakan yang mencerminkan persaudaraan sesama manusia tanpa membedakan latar belakang adalah ...", "arabic": null, "options": ["membantu hanya orang yang seagama", "menolak membantu orang yang berbeda suku", "membantu korban bencana tanpa memandang suku dan agamanya", "membantu hanya keluarga sendiri"], "key": "C", "key_text": "membantu korban bencana tanpa memandang suku dan agamanya", "score": 2}, {"id": 16, "type": "pg", "q": "Zakat fitrah yang dibayarkan per jiwa adalah 2,5 kg beras. Sebuah keluarga terdiri atas 5 orang. Beras yang harus disiapkan untuk zakat fitrah seluruh keluarga adalah ...", "arabic": null, "options": ["10 kg", "12,5 kg", "15 kg", "17,5 kg"], "key": "B", "key_text": "12,5 kg", "score": 2}, {"id": 17, "type": "pg", "q": "Pak Rudi memiliki harta yang telah mencapai nisab dan dimiliki selama satu tahun (haul). Langkah yang tepat agar zakat malnya sesuai ketentuan Islam adalah ...", "arabic": null, "options": ["menunggu hartanya bertambah dua kali lipat", "menghitung kadar zakat 2,5% lalu menyerahkannya kepada yang berhak atau lembaga amil", "tidak perlu berzakat karena sudah bersedekah sekali", "memberikan seluruh hartanya kepada satu orang saja"], "key": "B", "key_text": "menghitung kadar zakat 2,5% lalu menyerahkannya kepada yang berhak atau lembaga amil", "score": 2}, {"id": 18, "type": "pg", "q": "Pak Hasan ingin tanah miliknya bermanfaat bagi pendidikan masyarakat dan pahalanya terus mengalir. Tindakan yang tepat adalah ...", "arabic": null, "options": ["mewakafkan tanah untuk dibangun madrasah atau sekolah", "menjual tanah dan memakai uangnya sendiri", "membiarkan tanah kosong tanpa dimanfaatkan", "menyewakan tanah untuk keuntungan pribadi"], "key": "A", "key_text": "mewakafkan tanah untuk dibangun madrasah atau sekolah", "score": 2}, {"id": 19, "type": "pg", "q": "Nia memberikan buku gambar kepada Sari yang berulang tahun sebagai tanda sayang. Pemberian Nia disebut ...", "arabic": null, "options": ["zakat", "wakaf", "denda", "hadiah"], "key": "D", "key_text": "hadiah", "score": 2}, {"id": 20, "type": "pg", "q": "Pak Budi membantu mendorong gerobak tetangganya tanpa mengharapkan imbalan. Perbuatan itu termasuk ...", "arabic": null, "options": ["zakat fitrah", "wakaf", "sedekah", "utang"], "key": "C", "key_text": "sedekah", "score": 2}, {"id": 21, "type": "pg", "q": "Sikap yang mencerminkan keteladanan Abu Bakar Ash-Shiddiq dalam menyampaikan kebenaran adalah ...", "arabic": null, "options": ["menyampaikan pendapat dengan jujur dan bahasa yang santun", "menyampaikan kebenaran dengan membentak", "menyembunyikan kebenaran agar tidak dimusuhi", "berbohong agar temannya senang"], "key": "A", "key_text": "menyampaikan pendapat dengan jujur dan bahasa yang santun", "score": 2}, {"id": 22, "type": "pg", "q": "Pada masa Khalifah Umar bin Khattab, wilayah kekuasaan Islam meluas hingga ...", "arabic": null, "options": ["Spanyol dan Prancis", "Indonesia dan Malaysia", "Persia, Syam (Suriah), dan Mesir", "Amerika dan Australia"], "key": "C", "key_text": "Persia, Syam (Suriah), dan Mesir", "score": 2}, {"id": 23, "type": "pg", "q": "Abu Bakar mendapat gelar Ash-Shiddiq karena beliau ...", "arabic": null, "options": ["sangat pandai berperang", "langsung membenarkan peristiwa Isra' Mi'raj tanpa ragu", "hafal seluruh Al-Qur'an", "sangat kaya raya"], "key": "B", "key_text": "langsung membenarkan peristiwa Isra' Mi'raj tanpa ragu", "score": 2}, {"id": 24, "type": "pg", "q": "Masa pemerintahan Khalifah Umar bin Khattab berlangsung selama kurang lebih ... tahun.", "arabic": null, "options": ["2", "5", "10", "12"], "key": "C", "key_text": "10", "score": 2}, {"id": 25, "type": "pg", "q": "Pada masa awal Khulafaur Rasyidin, khalifah yang memimpin pengumpulan Al-Qur'an dalam satu mushaf adalah ...", "arabic": null, "options": ["Umar bin Khattab", "Utsman bin Affan", "Ali bin Abi Thalib", "Abu Bakar Ash-Shiddiq"], "key": "D", "key_text": "Abu Bakar Ash-Shiddiq", "score": 2}, {"id": 26, "type": "pg_kompleks", "q": "Pilihlah TIGA pernyataan yang sesuai dengan pesan Q.S. Al-Insyirah ayat 5–6!", "arabic": null, "options": [{"id": "A", "text": "Setiap kesulitan pasti diikuti kemudahan"}, {"id": "B", "text": "Kesulitan akan berlangsung selamanya"}, {"id": "C", "text": "Kita harus tetap sabar dan berusaha saat sulit"}, {"id": "D", "text": "Kemudahan datang tanpa perlu berusaha"}, {"id": "E", "text": "Allah memberikan kemudahan bersama kesulitan"}], "key": ["A", "C", "E"], "key_text": "[A] Setiap kesulitan pasti diikuti kemudahan, [C] Kita harus tetap sabar dan berusaha saat sulit, [E] Allah memberikan kemudahan bersama kesulitan", "score": 2}, {"id": 27, "type": "pg_kompleks", "q": "Pilihlah TIGA tindakan yang tepat untuk menolong teman yang dirundung (di-bully) sebagai penerapan nilai Al-Waliyy!", "arabic": null, "options": [{"id": "A", "text": "Melaporkan kejadian kepada guru"}, {"id": "B", "text": "Menemani dan menguatkan teman yang dirundung"}, {"id": "C", "text": "Ikut menertawakan agar tidak dimusuhi"}, {"id": "D", "text": "Membiarkannya karena bukan urusan kita"}, {"id": "E", "text": "Menasihati pelaku dengan cara yang baik"}], "key": ["A", "B", "E"], "key_text": "[A] Melaporkan kejadian kepada guru, [B] Menemani dan menguatkan teman yang dirundung, [E] Menasihati pelaku dengan cara yang baik", "score": 2}, {"id": 28, "type": "pg_kompleks", "q": "Pilihlah TIGA sikap yang menunjukkan kedewasaan saat hasil pemilihan ketua kelas tidak sesuai harapan!", "arabic": null, "options": [{"id": "A", "text": "Menerima hasil dan mendukung ketua yang terpilih"}, {"id": "B", "text": "Memberi selamat kepada ketua terpilih"}, {"id": "C", "text": "Memprotes dengan marah-marah"}, {"id": "D", "text": "Menjelek-jelekkan ketua terpilih"}, {"id": "E", "text": "Tetap bekerja sama dengan seluruh teman"}], "key": ["A", "B", "E"], "key_text": "[A] Menerima hasil dan mendukung ketua yang terpilih, [B] Memberi selamat kepada ketua terpilih, [E] Tetap bekerja sama dengan seluruh teman", "score": 2}, {"id": 29, "type": "pg_kompleks", "q": "Pilihlah TIGA sikap yang tepat dalam menyisihkan uang untuk berinfak dengan tetap mempertimbangkan kebutuhan pokok!", "arabic": null, "options": [{"id": "A", "text": "Menyisihkan sebagian uang saku sesuai kemampuan"}, {"id": "B", "text": "Tetap memenuhi kebutuhan pokok seperti buku dan makan sehat"}, {"id": "C", "text": "Menghabiskan seluruh uang saku sehingga tidak bisa membeli buku wajib"}, {"id": "D", "text": "Tidak pernah berinfak karena takut miskin"}, {"id": "E", "text": "Berinfak dengan ikhlas tanpa pamer"}], "key": ["A", "B", "E"], "key_text": "[A] Menyisihkan sebagian uang saku sesuai kemampuan, [B] Tetap memenuhi kebutuhan pokok seperti buku dan makan sehat, [E] Berinfak dengan ikhlas tanpa pamer", "score": 2}, {"id": 30, "type": "pg_kompleks", "q": "Pilihlah TIGA perilaku yang menerapkan keteladanan Abu Bakar Ash-Shiddiq di sekolah!", "arabic": null, "options": [{"id": "A", "text": "Berkata jujur"}, {"id": "B", "text": "Menyampaikan kebenaran dengan santun"}, {"id": "C", "text": "Berbohong demi mendapat nilai bagus"}, {"id": "D", "text": "Marah ketika dikritik"}, {"id": "E", "text": "Berbagi bekal dengan teman yang membutuhkan"}], "key": ["A", "B", "E"], "key_text": "[A] Berkata jujur, [B] Menyampaikan kebenaran dengan santun, [E] Berbagi bekal dengan teman yang membutuhkan", "score": 2}, {"id": 31, "type": "isian", "q": "Jelaskan sikap yang sesuai dengan pesan Surah Al-Insyirah ketika kamu mengalami kesulitan dalam belajar!", "arabic": null, "key": "Tidak mudah menyerah, tetap bersabar dan berusaha, serta berdoa karena setelah kesulitan ada kemudahan.", "keywords": ["tidak mudah menyerah", "tetap bersabar dan berusaha", "serta berdoa karena setelah kesulitan ada kemudahan."], "score": 2}, {"id": 32, "type": "isian", "q": "Jelaskan alasan Allah Swt. berhak mendapat pujian!", "arabic": null, "key": "Karena Allah memiliki sifat-sifat yang sempurna (Al-Hamid) dan telah memberikan banyak nikmat kepada makhluk-Nya.", "keywords": ["karena allah memiliki sifat-sifat yang sempurna  dan telah memberikan banyak nikmat kepada makhluk-nya."], "score": 2}, {"id": 33, "type": "isian", "q": "Apa istilah untuk persaudaraan yang didasarkan pada kesamaan bangsa?", "arabic": null, "key": "Ukhuwah wathaniyah", "keywords": ["ukhuwah wathaniyah"], "score": 2}, {"id": 34, "type": "isian", "q": "Jelaskan pengertian zakat menurut syariat Islam!", "arabic": null, "key": "Mengeluarkan sebagian harta tertentu yang wajib diberikan kepada golongan yang berhak menerimanya sesuai ketentuan syariat.", "keywords": ["mengeluarkan sebagian harta tertentu yang wajib diberikan kepada golongan yang berhak menerimanya sesuai ketentuan syariat."], "score": 2}, {"id": 35, "type": "isian", "q": "Jelaskan arti gelar Al-Faruq yang diberikan kepada Umar bin Khattab!", "arabic": null, "key": "Pembeda antara yang benar (hak) dan yang batil.", "keywords": ["pembeda antara yang benar  dan yang batil."], "score": 2}, {"id": 36, "type": "match", "premise": "Arti nama Surah Al-Insyirah adalah ...", "key": "E", "key_text": "Kelapangan (dada)", "score": 2}, {"id": 37, "type": "match", "premise": "Asmaulhusna Al-Adl artinya ...", "key": "B", "key_text": "Maha Adil", "score": 2}, {"id": 38, "type": "match", "premise": "Istilah persaudaraan antarsesama manusia adalah ...", "key": "C", "key_text": "Ukhuwah basyariyah (insaniyah)", "score": 2}, {"id": 39, "type": "match", "premise": "Orang yang mengeluarkan zakat disebut ...", "key": "A", "key_text": "Muzakki", "score": 2}, {"id": 40, "type": "match", "premise": "Abu Bakar memerangi nabi palsu dan orang yang enggan membayar zakat. Sikap ini menunjukkan ...", "key": "D", "key_text": "Tegas dalam kebenaran", "score": 2}, {"id": 41, "type": "uraian", "q": "Sebutkan tiga sebab atau latar belakang turunnya Surah Al-Insyirah (asbabun nuzul)!", "arabic": null, "key": "Nabi Muhammad saw. menghadapi kesulitan, ejekan, dan penolakan dalam berdakwah Beliau merasa sedih dan terbebani Allah menurunkan surah ini sebagai penghibur dan penegasan bahwa setelah kesulitan ada kemudahan", "rubric": "Tiap sebab yang benar = 1 (maks. 3); kalimat jelas dan runtut = +1.", "score": 4}, {"id": 42, "type": "uraian", "q": "Berikan dua contoh perilaku yang mencerminkan pengamalan asmaulhusna As-Sabur di lingkungan sekolah!", "arabic": null, "key": "Tidak marah ketika diejek teman Tetap belajar walau pelajaran sulit Menunggu giliran dengan tertib Mengulang pelajaran sampai paham", "rubric": "Tiap contoh yang tepat = 2 (maks. 4).", "score": 4}, {"id": 43, "type": "uraian", "q": "Jelaskan tujuan Allah Swt. menciptakan manusia dengan berbagai perbedaan!", "arabic": null, "key": "Agar manusia saling mengenal (Q.S. Al-Hujurat: 13) Agar saling menghormati dan melengkapi Yang paling mulia di sisi Allah adalah yang paling bertakwa Tiap tujuan yang tepat = 2 (maks. 4).", "rubric": "Penilaian sesuai kelengkapan dan ketepatan penjelasan.", "score": 4}, {"id": 44, "type": "uraian", "q": "Sebutkan empat golongan yang berhak menerima zakat!", "arabic": null, "key": "Fakir Miskin Amil Muallaf Riqab (hamba sahaya) Gharimin (orang berutang) Fi sabilillah Ibnu sabil", "rubric": "Tiap golongan yang benar = 1 (maks. 4).", "score": 4}, {"id": 45, "type": "uraian", "q": "Sebutkan tiga jasa atau prestasi Khalifah Umar bin Khattab selama masa kepemimpinannya!", "arabic": null, "key": "Memperluas wilayah Islam (Persia, Syam, Mesir, Yerusalem) Mendirikan baitul mal (kas negara) Membentuk administrasi pemerintahan dan lembaga peradilan Menetapkan kalender Hijriah", "rubric": "Tiap jasa yang benar = 1 (maks. 3); penjelasan singkat yang tepat = +1.", "score": 4}], "match_options": [{"id": "A", "text": "Muzakki"}, {"id": "B", "text": "Maha Adil"}, {"id": "C", "text": "Ukhuwah basyariyah (insaniyah)"}, {"id": "D", "text": "Tegas dalam kebenaran"}, {"id": "E", "text": "Kelapangan (dada)"}, {"id": "F", "text": "Mustahik"}, {"id": "G", "text": "Maha Bijaksana"}]}}};
+
+    class QuizApp {
+      constructor() {
+        this.data = APP_DATA;
+        this.currentClassId = null;
+        this.answers = {};
+        this.timerSeconds = 90 * 60; // 90 menit = 5400 detik
+        this.timerInterval = null;
+        this.elapsedSeconds = 0;
+        this.init();
+      }
+
+      init() {
+        const today = new Date();
+        const dateStr = today.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        const dateInput = document.getElementById('input-student-date');
+        if (dateInput) dateInput.value = dateStr;
+
+        this.renderHub();
+
+        window.addEventListener('hashchange', () => this.handleRouting());
+        this.handleRouting();
+      }
+
+      handleRouting() {
+        const hash = window.location.hash.replace('#', '');
+        const validClasses = ['kelas-1', 'kelas-2', 'kelas-3', 'kelas-4', 'kelas-5', 'kelas-6'];
+        const matched = validClasses.find(c => c === hash || c.replace('-', '') === hash);
+        if (matched) {
+          this.startExam(matched);
+        } else {
+          this.showHub();
+        }
+      }
+
+      showHub() {
+        this.stopTimer();
+        window.location.hash = 'hub';
+        document.getElementById('view-hub').classList.remove('hidden');
+        document.getElementById('view-exam').classList.add('hidden');
+        document.getElementById('view-result').classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      renderHub() {
+        const container = document.querySelector('#view-hub .grid');
+        container.innerHTML = '';
+
+        this.data.classes.forEach(cls => {
+          const card = document.createElement('div');
+          card.className = 'rounded-2xl p-6 text-white border-2 border-black flex flex-col justify-between transition-transform duration-150';
+          card.style.backgroundColor = cls.bg;
+
+          const isActive = cls.status === 'active';
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-full" style="background-color: ${cls.badgeBg}; color: ${cls.badgeText};">
+                  ${cls.fase}
+                </span>
+                <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-[#D4F479] text-[#111111]">
+                  ${cls.statusText}
+                </span>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-2">
+                ${cls.title}
+              </h3>
+              <p class="text-xs md:text-sm text-white/90 font-medium leading-relaxed mb-6">
+                ${cls.subtitle}
+              </p>
+            </div>
+
+            <div>
+              <button onclick="app.startExam('${cls.id}')" class="w-full bg-white hover:bg-zinc-100 text-[#18181B] font-black text-sm py-3 px-4 rounded-xl border-2 border-black flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-none">
+                <span>Mulai Latihan Sekarang</span>
+                <span class="text-lg">→</span>
+              </button>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      startExam(classId) {
+        const classInfo = this.data.classes.find(c => c.id === classId);
+        const questionsData = this.data.questionsMap[classId];
+
+        if (!classInfo || !questionsData) {
+          alert('Latihan untuk kelas ini belum tersedia.');
+          this.showHub();
+          return;
+        }
+
+        this.currentClassId = classId;
+        this.answers = {};
+        this.timerSeconds = 90 * 60;
+        this.elapsedSeconds = 0;
+
+        window.location.hash = classId;
+
+        // Apply theme color
+        const themeColor = questionsData.themeColor || classInfo.bg;
+        document.getElementById('student-form-card').style.backgroundColor = themeColor;
+        document.getElementById('active-class-pill').textContent = classInfo.title;
+        document.getElementById('active-class-pill').style.backgroundColor = classInfo.badgeBg;
+        document.getElementById('active-class-pill').style.color = classInfo.badgeText;
+        document.getElementById('exam-meta-info').textContent = `Waktu: ± 90 Menit • ${questionsData.totalQuestions} Butir Soal`;
+
+        // Switch view
+        document.getElementById('view-hub').classList.add('hidden');
+        document.getElementById('view-exam').classList.remove('hidden');
+        document.getElementById('view-result').classList.add('hidden');
+
+        this.renderQuestions(questionsData);
+        this.updateAnswerProgress();
+        this.startTimer();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      renderQuestions(questionsData) {
+        const container = document.getElementById('questions-container');
+        container.innerHTML = '';
+
+        const qs = questionsData.questions;
+
+        // Separate sections
+        const pgList = qs.filter(q => q.type === 'pg');
+        const pgkList = qs.filter(q => q.type === 'pg_kompleks');
+        const isianList = qs.filter(q => q.type === 'isian');
+        const matchList = qs.filter(q => q.type === 'match');
+        const uraianList = qs.filter(q => q.type === 'uraian');
+
+        // SECTION A: PILIHAN GANDA
+        if (pgList.length > 0) {
+          const secA = document.createElement('div');
+          secA.className = 'space-y-4';
+          secA.innerHTML = `
+            <div class="bg-[#18181B] text-white p-4 rounded-2xl border-2 border-black flex items-center justify-between gap-3">
+              <div>
+                <span class="bg-[#D4F479] text-[#111111] text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">BAGIAN A</span>
+                <h4 class="text-base md:text-lg font-black uppercase text-white mt-1">Pilihan Ganda (No. ${pgList[0].id} – ${pgList[pgList.length - 1].id})</h4>
+              </div>
+              <span class="text-xs font-bold text-zinc-300">Skor: 2/butir (Maks ${pgList.length * 2})</span>
+            </div>
+          `;
+          pgList.forEach(q => {
+            secA.appendChild(this.createPgQuestionElement(q));
+          });
+          container.appendChild(secA);
+        }
+
+        // SECTION B: PILIHAN GANDA KOMPLEKS (Jika ada)
+        if (pgkList.length > 0) {
+          const secB = document.createElement('div');
+          secB.className = 'space-y-4';
+          secB.innerHTML = `
+            <div class="bg-[#18181B] text-white p-4 rounded-2xl border-2 border-black flex items-center justify-between gap-3 mt-8">
+              <div>
+                <span class="bg-[#D4F479] text-[#111111] text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">BAGIAN B</span>
+                <h4 class="text-base md:text-lg font-black uppercase text-white mt-1">Pilihan Ganda Kompleks (No. ${pgkList[0].id} – ${pgkList[pgkList.length - 1].id})</h4>
+              </div>
+              <span class="text-xs font-bold text-zinc-300">Skor: 2/butir (Maks 10)</span>
+            </div>
+            <div class="bg-amber-50 border border-amber-300 text-amber-900 p-3.5 rounded-xl text-xs md:text-sm font-bold flex items-center gap-2">
+              <span>💡</span>
+              <span><strong>Petunjuk:</strong> Pilihlah semua jawaban yang kamu anggap benar dengan mencentang kotak di depan pilihan (dapat lebih dari satu jawaban)!</span>
+            </div>
+          `;
+          pgkList.forEach(q => {
+            secB.appendChild(this.createPgKompleksQuestionElement(q));
+          });
+          container.appendChild(secB);
+        }
+
+        // SECTION C: ISIAN SINGKAT / URAIAN SINGKAT
+        if (isianList.length > 0) {
+          const secC = document.createElement('div');
+          secC.className = 'space-y-4';
+          const secLabel = pgkList.length > 0 ? 'BAGIAN C' : 'BAGIAN B';
+          const isianScoreMax = isianList.reduce((acc, q) => acc + q.score, 0);
+          secC.innerHTML = `
+            <div class="bg-[#18181B] text-white p-4 rounded-2xl border-2 border-black flex items-center justify-between gap-3 mt-8">
+              <div>
+                <span class="bg-[#D4F479] text-[#111111] text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">${secLabel}</span>
+                <h4 class="text-base md:text-lg font-black uppercase text-white mt-1">Isian / Uraian Singkat (No. ${isianList[0].id} – ${isianList[isianList.length - 1].id})</h4>
+              </div>
+              <span class="text-xs font-bold text-zinc-300">Skor: ${isianList[0].score}/butir (Maks ${isianScoreMax})</span>
+            </div>
+          `;
+          isianList.forEach(q => {
+            secC.appendChild(this.createIsianQuestionElement(q));
+          });
+          container.appendChild(secC);
+        }
+
+        // SECTION D: MENJODOHKAN
+        if (matchList.length > 0) {
+          const secD = document.createElement('div');
+          secD.className = 'space-y-4';
+          const secLabel = pgkList.length > 0 ? 'BAGIAN D' : 'BAGIAN C';
+          const matchScoreMax = matchList.reduce((acc, q) => acc + q.score, 0);
+          secD.innerHTML = `
+            <div class="bg-[#18181B] text-white p-4 rounded-2xl border-2 border-black flex items-center justify-between gap-3 mt-8">
+              <div>
+                <span class="bg-[#D4F479] text-[#111111] text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">${secLabel}</span>
+                <h4 class="text-base md:text-lg font-black uppercase text-white mt-1">Menjodohkan (No. ${matchList[0].id} – ${matchList[matchList.length - 1].id})</h4>
+              </div>
+              <span class="text-xs font-bold text-zinc-300">Skor: ${matchList[0].score}/butir (Maks ${matchScoreMax})</span>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border-2 border-black">
+              <h5 class="text-xs font-black uppercase tracking-wider text-zinc-600 mb-2">Pilihan Pasangan Tersedia:</h5>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-bold text-zinc-800">
+                ${questionsData.match_options.map(opt => `
+                  <div class="bg-[#FBF9F5] p-2 rounded-xl border border-zinc-300 flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-[#18181B] text-white flex items-center justify-center font-black">${opt.id}</span>
+                    <span>${opt.text}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+          matchList.forEach(q => {
+            secD.appendChild(this.createMatchQuestionElement(q, questionsData.match_options));
+          });
+          container.appendChild(secD);
+        }
+
+        // SECTION E: URAIAN PANJANG
+        if (uraianList.length > 0) {
+          const secE = document.createElement('div');
+          secE.className = 'space-y-4';
+          const secLabel = pgkList.length > 0 ? 'BAGIAN E' : 'BAGIAN D';
+          const uraianScoreMax = uraianList.reduce((acc, q) => acc + q.score, 0);
+          secE.innerHTML = `
+            <div class="bg-[#18181B] text-white p-4 rounded-2xl border-2 border-black flex items-center justify-between gap-3 mt-8">
+              <div>
+                <span class="bg-[#D4F479] text-[#111111] text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">${secLabel}</span>
+                <h4 class="text-base md:text-lg font-black uppercase text-white mt-1">Uraian (No. ${uraianList[0].id} – ${uraianList[uraianList.length - 1].id})</h4>
+              </div>
+              <span class="text-xs font-bold text-zinc-300">Skor: ${uraianList[0].score}/butir (Maks ${uraianScoreMax})</span>
+            </div>
+          `;
+          uraianList.forEach(q => {
+            secE.appendChild(this.createUraianQuestionElement(q));
+          });
+          container.appendChild(secE);
+        }
+      }
+
+      createPgQuestionElement(q) {
+        const card = document.createElement('div');
+        card.id = `q-card-${q.id}`;
+        card.className = 'bg-white rounded-2xl p-5 md:p-6 border-2 border-black space-y-4';
+
+        const arabicHtml = q.arabic ? `
+          <div class="bg-[#FBF9F5] p-4 rounded-xl border-2 border-zinc-200 text-center">
+            <span class="arabic-text text-2xl md:text-3xl font-bold text-[#18181B]">${q.arabic}</span>
+          </div>
+        ` : '';
+
+        const letters = ['A', 'B', 'C', 'D'];
+        const optionsHtml = q.options.map((opt, idx) => {
+          const letter = letters[idx];
+          return `
+            <label class="pg-option-label flex items-start gap-3 p-3.5 rounded-xl border-2 border-zinc-300 cursor-pointer transition-colors hover:border-black active:scale-[0.99] select-none" data-qid="${q.id}" data-val="${letter}">
+              <input type="radio" name="q_${q.id}" value="${letter}" onchange="app.handlePgSelect(${q.id}, '${letter}')" class="sr-only">
+              <span class="pg-badge w-7 h-7 flex-shrink-0 rounded-lg bg-zinc-200 text-black flex items-center justify-center font-black text-xs md:text-sm">
+                ${letter}
+              </span>
+              <span class="text-xs md:text-sm font-semibold text-zinc-900 pt-0.5 leading-snug">
+                ${opt}
+              </span>
+            </label>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="bg-[#18181B] text-white w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs flex-shrink-0 mt-0.5">
+              ${q.id}
+            </span>
+            <div class="flex-grow">
+              <p class="text-sm md:text-base font-bold text-[#18181B] leading-relaxed">
+                ${q.q}
+              </p>
+            </div>
+          </div>
+          ${arabicHtml}
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+            ${optionsHtml}
+          </div>
+        `;
+        return card;
+      }
+
+      createPgKompleksQuestionElement(q) {
+        const card = document.createElement('div');
+        card.id = `q-card-${q.id}`;
+        card.className = 'bg-white rounded-2xl p-5 md:p-6 border-2 border-black space-y-4';
+
+        const arabicHtml = q.arabic ? `
+          <div class="bg-[#FBF9F5] p-4 rounded-xl border-2 border-zinc-200 text-center">
+            <span class="arabic-text text-2xl md:text-3xl font-bold text-[#18181B]">${q.arabic}</span>
+          </div>
+        ` : '';
+
+        const optionsHtml = q.options.map(opt => {
+          return `
+            <label class="pgk-option-label flex items-start gap-3 p-3.5 rounded-xl border-2 border-zinc-300 cursor-pointer transition-colors hover:border-black active:scale-[0.99] select-none" data-qid="${q.id}" data-val="${opt.id}">
+              <input type="checkbox" name="q_${q.id}" value="${opt.id}" onchange="app.handlePgkSelect(${q.id}, '${opt.id}', this.checked)" class="sr-only">
+              <span class="pgk-badge w-7 h-7 flex-shrink-0 rounded-lg bg-zinc-200 text-black flex items-center justify-center font-black text-xs md:text-sm">
+                ${opt.id}
+              </span>
+              <span class="text-xs md:text-sm font-semibold text-zinc-900 pt-0.5 leading-snug">
+                ${opt.text}
+              </span>
+            </label>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="bg-[#18181B] text-white w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs flex-shrink-0 mt-0.5">
+              ${q.id}
+            </span>
+            <div class="flex-grow">
+              <p class="text-sm md:text-base font-bold text-[#18181B] leading-relaxed">
+                ${q.q}
+              </p>
+            </div>
+          </div>
+          ${arabicHtml}
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+            ${optionsHtml}
+          </div>
+        `;
+        return card;
+      }
+
+      createIsianQuestionElement(q) {
+        const card = document.createElement('div');
+        card.id = `q-card-${q.id}`;
+        card.className = 'bg-white rounded-2xl p-5 md:p-6 border-2 border-black space-y-3';
+
+        const arabicHtml = q.arabic ? `
+          <div class="bg-[#FBF9F5] p-3 rounded-xl border-2 border-zinc-200 text-center my-2">
+            <span class="arabic-text text-2xl font-bold text-[#18181B]">${q.arabic}</span>
+          </div>
+        ` : '';
+
+        card.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="bg-[#18181B] text-white w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs flex-shrink-0 mt-0.5">
+              ${q.id}
+            </span>
+            <div class="flex-grow">
+              <p class="text-sm md:text-base font-bold text-[#18181B] leading-relaxed">
+                ${q.q}
+              </p>
+            </div>
+          </div>
+          ${arabicHtml}
+          <div class="pt-2">
+            <input type="text" id="input_q_${q.id}" oninput="app.handleTextInput(${q.id}, this.value)" placeholder="Ketik jawaban singkat kamu di sini..." class="w-full bg-[#FBF9F5] text-black font-bold text-sm px-4 py-3 rounded-xl border-2 border-zinc-300 focus:border-black">
+          </div>
+        `;
+        return card;
+      }
+
+      createMatchQuestionElement(q, matchOptions) {
+        const card = document.createElement('div');
+        card.id = `q-card-${q.id}`;
+        card.className = 'bg-white rounded-2xl p-5 md:p-6 border-2 border-black space-y-3';
+
+        const selectOptions = matchOptions.map(opt => `
+          <option value="${opt.id}">${opt.id}. ${opt.text}</option>
+        `).join('');
+
+        card.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="bg-[#18181B] text-white w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs flex-shrink-0 mt-0.5">
+              ${q.id}
+            </span>
+            <div class="flex-grow">
+              <p class="text-sm md:text-base font-bold text-[#18181B] leading-relaxed">
+                ${q.premise}
+              </p>
+            </div>
+          </div>
+          <div class="pt-2">
+            <label class="block text-xs font-black uppercase tracking-wider text-zinc-500 mb-1">Pilih Pasangan Huruf Jawaban:</label>
+            <select id="select_q_${q.id}" onchange="app.handleMatchSelect(${q.id}, this.value)" class="w-full bg-[#FBF9F5] text-black font-bold text-sm px-4 py-3 rounded-xl border-2 border-zinc-300 focus:border-black cursor-pointer">
+              <option value="">-- Pilih Huruf Pasangan (A - G) --</option>
+              ${selectOptions}
+            </select>
+          </div>
+        `;
+        return card;
+      }
+
+      createUraianQuestionElement(q) {
+        const card = document.createElement('div');
+        card.id = `q-card-${q.id}`;
+        card.className = 'bg-white rounded-2xl p-5 md:p-6 border-2 border-black space-y-3';
+
+        const arabicHtml = q.arabic ? `
+          <div class="bg-[#FBF9F5] p-3 rounded-xl border-2 border-zinc-200 text-center my-2">
+            <span class="arabic-text text-2xl font-bold text-[#18181B]">${q.arabic}</span>
+          </div>
+        ` : '';
+
+        card.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="bg-[#18181B] text-white w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs flex-shrink-0 mt-0.5">
+              ${q.id}
+            </span>
+            <div class="flex-grow">
+              <p class="text-sm md:text-base font-bold text-[#18181B] leading-relaxed">
+                ${q.q}
+              </p>
+            </div>
+          </div>
+          ${arabicHtml}
+          <div class="pt-2">
+            <textarea id="textarea_q_${q.id}" rows="3" oninput="app.handleTextInput(${q.id}, this.value)" placeholder="Tuliskan jawaban penjelasan kamu di sini..." class="w-full bg-[#FBF9F5] text-black font-medium text-sm px-4 py-3 rounded-xl border-2 border-zinc-300 focus:border-black leading-relaxed"></textarea>
+          </div>
+        `;
+        return card;
+      }
+
+      handlePgSelect(qid, letter) {
+        this.answers[qid] = letter;
+
+        const card = document.getElementById(`q-card-${qid}`);
+        if (card) {
+          const labels = card.querySelectorAll('.pg-option-label');
+          labels.forEach(lbl => {
+            const val = lbl.getAttribute('data-val');
+            const badge = lbl.querySelector('.pg-badge');
+            if (val === letter) {
+              lbl.classList.remove('border-zinc-300', 'bg-white');
+              lbl.classList.add('border-black', 'bg-[#18181B]', 'text-white');
+              badge.classList.remove('bg-zinc-200', 'text-black');
+              badge.classList.add('bg-[#D4F479]', 'text-[#111111]');
+              lbl.querySelector('span:last-child').classList.add('text-white');
+            } else {
+              lbl.classList.add('border-zinc-300', 'bg-white');
+              lbl.classList.remove('border-black', 'bg-[#18181B]', 'text-white');
+              badge.classList.add('bg-zinc-200', 'text-black');
+              badge.classList.remove('bg-[#D4F479]', 'text-[#111111]');
+              lbl.querySelector('span:last-child').classList.remove('text-white');
+            }
+          });
+        }
+        this.updateAnswerProgress();
+      }
+
+      handlePgkSelect(qid, letter, isChecked) {
+        if (!Array.isArray(this.answers[qid])) {
+          this.answers[qid] = [];
+        }
+
+        if (isChecked) {
+          if (!this.answers[qid].includes(letter)) {
+            this.answers[qid].push(letter);
+          }
+        } else {
+          this.answers[qid] = this.answers[qid].filter(l => l !== letter);
+          if (this.answers[qid].length === 0) {
+            delete this.answers[qid];
+          }
+        }
+
+        const card = document.getElementById(`q-card-${qid}`);
+        if (card) {
+          const labels = card.querySelectorAll('.pgk-option-label');
+          labels.forEach(lbl => {
+            const val = lbl.getAttribute('data-val');
+            const badge = lbl.querySelector('.pgk-badge');
+            const selected = Array.isArray(this.answers[qid]) && this.answers[qid].includes(val);
+            if (selected) {
+              lbl.classList.remove('border-zinc-300', 'bg-white');
+              lbl.classList.add('border-black', 'bg-[#18181B]', 'text-white');
+              badge.classList.remove('bg-zinc-200', 'text-black');
+              badge.classList.add('bg-[#D4F479]', 'text-[#111111]');
+              lbl.querySelector('span:last-child').classList.add('text-white');
+            } else {
+              lbl.classList.add('border-zinc-300', 'bg-white');
+              lbl.classList.remove('border-black', 'bg-[#18181B]', 'text-white');
+              badge.classList.add('bg-zinc-200', 'text-black');
+              badge.classList.remove('bg-[#D4F479]', 'text-[#111111]');
+              lbl.querySelector('span:last-child').classList.remove('text-white');
+            }
+          });
+        }
+        this.updateAnswerProgress();
+      }
+
+      handleTextInput(qid, text) {
+        const trimmed = text.trim();
+        if (trimmed.length > 0) {
+          this.answers[qid] = trimmed;
+        } else {
+          delete this.answers[qid];
+        }
+        this.updateAnswerProgress();
+      }
+
+      handleMatchSelect(qid, letter) {
+        if (letter && letter !== '') {
+          this.answers[qid] = letter;
+        } else {
+          delete this.answers[qid];
+        }
+        this.updateAnswerProgress();
+      }
+
+      updateAnswerProgress() {
+        const total = this.data.questionsMap[this.currentClassId]?.totalQuestions || 35;
+        const answeredCount = Object.keys(this.answers).length;
+        const badge = document.getElementById('answered-badge');
+        if (badge) badge.textContent = `${answeredCount} / ${total}`;
+
+        const footerBadge = document.getElementById('footer-status-badge');
+        if (footerBadge) {
+          if (answeredCount >= total) {
+            footerBadge.className = 'bg-[#D4F479] text-[#111111] text-xs font-black px-2.5 py-0.5 rounded-full';
+            footerBadge.textContent = `Lengkap (${total}/${total})`;
+          } else {
+            footerBadge.className = 'bg-red-500 text-white text-xs font-black px-2.5 py-0.5 rounded-full';
+            footerBadge.textContent = `Kurang ${total - answeredCount} Soal`;
+          }
+        }
+      }
+
+      startTimer() {
+        this.stopTimer();
+        const display = document.getElementById('timer-display');
+        const pill = document.getElementById('timer-pill');
+
+        const updateTimerView = () => {
+          const mins = Math.floor(this.timerSeconds / 60);
+          const secs = this.timerSeconds % 60;
+          display.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+          if (this.timerSeconds <= 300) {
+            pill.className = 'bg-red-600 text-white px-3.5 py-1.5 rounded-xl font-black text-sm md:text-base flex items-center gap-1.5 animate-pulse';
+          } else if (this.timerSeconds <= 600) {
+            pill.className = 'bg-amber-400 text-black px-3.5 py-1.5 rounded-xl font-black text-sm md:text-base flex items-center gap-1.5';
+          } else {
+            pill.className = 'bg-[#D4F479] text-[#111111] px-3.5 py-1.5 rounded-xl font-black text-sm md:text-base flex items-center gap-1.5 tracking-wider';
+          }
+
+          if (this.timerSeconds <= 0) {
+            this.stopTimer();
+            alert('Waktu 90 menit telah habis! Sistem akan memeriksa dan menampilkan hasil pengerjaanmu.');
+            this.finalizeSubmission(true);
+          }
+        };
+
+        updateTimerView();
+        this.timerInterval = setInterval(() => {
+          this.timerSeconds--;
+          this.elapsedSeconds++;
+          updateTimerView();
+        }, 1000);
+      }
+
+      stopTimer() {
+        if (this.timerInterval) {
+          clearInterval(this.timerInterval);
+          this.timerInterval = null;
+        }
+      }
+
+      submitExam() {
+        const total = this.data.questionsMap[this.currentClassId]?.totalQuestions || 35;
+        const unanswered = [];
+        for (let i = 1; i <= total; i++) {
+          if (!this.answers[i]) {
+            unanswered.push(i);
+          }
+        }
+
+        if (unanswered.length > 0) {
+          this.showUnansweredModal(unanswered);
+        } else {
+          document.getElementById('modal-confirm').classList.remove('hidden');
+        }
+      }
+
+      showUnansweredModal(unansweredList) {
+        document.getElementById('unanswered-count-text').textContent = unansweredList.length;
+        const pillsContainer = document.getElementById('unanswered-pills-list');
+        pillsContainer.innerHTML = '';
+
+        unansweredList.forEach(num => {
+          const pill = document.createElement('button');
+          pill.className = 'bg-red-100 hover:bg-red-200 text-red-700 text-xs font-black px-3 py-1.5 rounded-lg border border-red-300 transition-transform active:scale-95';
+          pill.textContent = `Soal #${num}`;
+          pill.onclick = () => {
+            this.closeUnansweredModal();
+            this.jumpToQuestion(num);
+          };
+          pillsContainer.appendChild(pill);
+        });
+
+        document.getElementById('modal-unanswered').classList.remove('hidden');
+      }
+
+      closeUnansweredModal() {
+        document.getElementById('modal-unanswered').classList.add('hidden');
+      }
+
+      closeConfirmModal() {
+        document.getElementById('modal-confirm').classList.add('hidden');
+      }
+
+      jumpToQuestion(num) {
+        const card = document.getElementById(`q-card-${num}`);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.classList.add('ring-4', 'ring-red-500');
+          setTimeout(() => {
+            card.classList.remove('ring-4', 'ring-red-500');
+          }, 2000);
+        }
+      }
+
+      confirmExitExam() {
+        if (confirm('Apakah kamu yakin ingin keluar dari latihan ini? Jawaban yang belum dikumpulkan akan hilang.')) {
+          this.showHub();
+        }
+      }
+
+      retakeExam() {
+        if (this.currentClassId) {
+          this.startExam(this.currentClassId);
+        } else {
+          this.showHub();
+        }
+      }
+
+      finalizeSubmission(isTimeout = false) {
+        this.stopTimer();
+        this.closeConfirmModal();
+
+        const questionsData = this.data.questionsMap[this.currentClassId];
+        const studentName = document.getElementById('input-student-name').value.trim() || 'Siswa Teladan';
+        const studentNo = document.getElementById('input-student-no').value.trim() || '-';
+
+        let scorePg = 0;
+        let scorePgk = 0;
+        let scoreIsian = 0;
+        let scoreMatch = 0;
+
+        const resultsDetails = [];
+
+        questionsData.questions.forEach(q => {
+          const userAns = this.answers[q.id];
+          let isCorrect = false;
+          let earnedScore = 0;
+
+          if (q.type === 'pg') {
+            if (userAns === q.key) {
+              isCorrect = true;
+              earnedScore = q.score;
+              scorePg += earnedScore;
+            }
+          } else if (q.type === 'pg_kompleks') {
+            // Scoring rule: All correct and no wrong = 2; partial correct without wrong = 1; else 0
+            if (Array.isArray(userAns) && userAns.length > 0) {
+              const correctSet = new Set(q.key);
+              const userSet = new Set(userAns);
+              
+              const hasWrong = userAns.some(item => !correctSet.has(item));
+              if (!hasWrong) {
+                if (userSet.size === correctSet.size) {
+                  isCorrect = true;
+                  earnedScore = 2;
+                } else {
+                  earnedScore = 1; // partial
+                }
+              } else {
+                earnedScore = 0;
+              }
+            }
+            scorePgk += earnedScore;
+          } else if (q.type === 'match') {
+            if (userAns === q.key) {
+              isCorrect = true;
+              earnedScore = q.score;
+              scoreMatch += earnedScore;
+            }
+          } else if (q.type === 'isian') {
+            if (userAns) {
+              const cleanUser = userAns.toLowerCase();
+              const hasKeyword = q.keywords && q.keywords.some(k => cleanUser.includes(k.toLowerCase()));
+              if (hasKeyword) {
+                isCorrect = true;
+                earnedScore = q.score;
+                scoreIsian += earnedScore;
+              }
+            }
+          } else if (q.type === 'uraian') {
+            earnedScore = q.score;
+          }
+
+          resultsDetails.push({
+            ...q,
+            userAns: userAns || '(Tidak dijawab)',
+            isCorrect: isCorrect,
+            earnedScore: earnedScore
+          });
+        });
+
+        const totalAutoScore = scorePg + scorePgk + scoreIsian + scoreMatch;
+
+        // Populate Result View
+        const classInfo = this.data.classes.find(c => c.id === this.currentClassId);
+        document.getElementById('res-class-pill').textContent = classInfo.title;
+        document.getElementById('res-total-score').textContent = totalAutoScore;
+
+        const hasPgk = questionsData.questions.some(q => q.type === 'pg_kompleks');
+        const uraianMax = questionsData.questions.filter(q => q.type === 'uraian').reduce((acc, q) => acc + q.score, 0);
+        const autoMax = 100 - uraianMax;
+
+        document.getElementById('res-score-note').textContent = `dari ${autoMax} poin otomatis (+${uraianMax} poin uraian)`;
+
+        // Setup breakdown grid
+        const pgMax = questionsData.questions.filter(q => q.type === 'pg').reduce((acc, q) => acc + q.score, 0);
+        const isianMax = questionsData.questions.filter(q => q.type === 'isian').reduce((acc, q) => acc + q.score, 0);
+        const matchMax = questionsData.questions.filter(q => q.type === 'match').reduce((acc, q) => acc + q.score, 0);
+
+        const breakdownContainer = document.getElementById('res-breakdown-grid');
+        breakdownContainer.innerHTML = `
+          <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+            <span class="text-zinc-300 block">Pilihan Ganda</span>
+            <strong class="text-base text-white font-black">${scorePg} / ${pgMax}</strong>
+          </div>
+          ${hasPgk ? `
+            <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+              <span class="text-zinc-300 block">PG Kompleks</span>
+              <strong class="text-base text-white font-black">${scorePgk} / 10</strong>
+            </div>
+          ` : ''}
+          <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+            <span class="text-zinc-300 block">Isian Singkat</span>
+            <strong class="text-base text-white font-black">${scoreIsian} / ${isianMax}</strong>
+          </div>
+          <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+            <span class="text-zinc-300 block">Menjodohkan</span>
+            <strong class="text-base text-white font-black">${scoreMatch} / ${matchMax}</strong>
+          </div>
+          <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+            <span class="text-zinc-300 block">Uraian (Rubrik)</span>
+            <strong class="text-base text-white font-black">Maks. ${uraianMax}</strong>
+          </div>
+        `;
+
+        const elapsedMins = Math.floor(this.elapsedSeconds / 60);
+        const elapsedSecs = this.elapsedSeconds % 60;
+        document.getElementById('res-student-info').textContent = `Peserta: ${studentName} • No. Absen: ${studentNo} • Waktu Pengerjaan: ${elapsedMins} menit ${elapsedSecs} detik`;
+
+        this.renderResultsDetails(resultsDetails, questionsData);
+
+        // Switch to Results View
+        document.getElementById('view-hub').classList.add('hidden');
+        document.getElementById('view-exam').classList.add('hidden');
+        document.getElementById('view-result').classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      renderResultsDetails(resultsDetails, questionsData) {
+        const container = document.getElementById('results-review-container');
+        container.innerHTML = '';
+
+        resultsDetails.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'print-card bg-white rounded-2xl p-5 md:p-6 border-2 border-black space-y-3';
+
+          let statusBadge = '';
+          if (item.type === 'uraian') {
+            statusBadge = `<span class="bg-indigo-100 text-indigo-900 border border-indigo-300 text-xs font-black px-2.5 py-0.5 rounded-full">Rubrik Penilaian Uraian (Skor Maks ${item.score})</span>`;
+          } else if (item.type === 'pg_kompleks') {
+            if (item.earnedScore === 2) {
+              statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-400 text-xs font-black px-2.5 py-0.5 rounded-full">✓ Benar Penuh (+2 Poin)</span>`;
+            } else if (item.earnedScore === 1) {
+              statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-400 text-xs font-black px-2.5 py-0.5 rounded-full">~ Benar Sebagian (+1 Poin)</span>`;
+            } else {
+              statusBadge = `<span class="bg-red-100 text-red-800 border border-red-400 text-xs font-black px-2.5 py-0.5 rounded-full">✗ Belum Tepat (0 Poin)</span>`;
+            }
+          } else if (item.isCorrect) {
+            statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-400 text-xs font-black px-2.5 py-0.5 rounded-full">✓ Benar (+${item.earnedScore} Poin)</span>`;
+          } else {
+            statusBadge = `<span class="bg-red-100 text-red-800 border border-red-400 text-xs font-black px-2.5 py-0.5 rounded-full">✗ Belum Tepat (0 Poin)</span>`;
+          }
+
+          const questionText = item.q || item.premise;
+          const arabicHtml = item.arabic ? `
+            <div class="bg-[#FBF9F5] p-3 rounded-xl border border-zinc-200 text-center my-1.5">
+              <span class="arabic-text text-xl font-bold text-[#18181B]">${item.arabic}</span>
+            </div>
+          ` : '';
+
+          let keyDisplay = '';
+          if (item.type === 'pg') {
+            keyDisplay = `<strong>[${item.key}]</strong> ${item.key_text}`;
+          } else if (item.type === 'pg_kompleks') {
+            keyDisplay = `<strong>${item.key_text}</strong>`;
+          } else if (item.type === 'match') {
+            keyDisplay = `<strong>[${item.key}]</strong> ${item.key_text}`;
+          } else if (item.type === 'isian') {
+            keyDisplay = `<strong>${item.key}</strong>`;
+          } else if (item.type === 'uraian') {
+            keyDisplay = `
+              <div class="mt-1 text-xs md:text-sm font-semibold text-zinc-900">
+                <p class="mb-1">${item.key}</p>
+                <div class="bg-amber-50 border border-amber-200 p-2.5 rounded-lg text-amber-900 font-medium">
+                  <strong>Pedoman Penskoran:</strong> ${item.rubric}
+                </div>
+              </div>
+            `;
+          }
+
+          let userAnsDisplay = item.userAns;
+          if (Array.isArray(item.userAns)) {
+            userAnsDisplay = item.userAns.join(', ') || '(Tidak dijawab)';
+          }
+
+          card.innerHTML = `
+            <div class="flex items-start justify-between gap-3 flex-wrap">
+              <div class="flex items-center gap-2">
+                <span class="bg-[#18181B] text-white w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs">
+                  ${item.id}
+                </span>
+                <span class="text-xs font-black uppercase text-zinc-500">${item.type.replace('_', ' ').toUpperCase()}</span>
+              </div>
+              ${statusBadge}
+            </div>
+
+            <p class="text-sm md:text-base font-bold text-[#18181B] leading-relaxed pt-1">
+              ${questionText}
+            </p>
+            ${arabicHtml}
+
+            <div class="bg-[#FBF9F5] p-3.5 rounded-xl border border-zinc-300 space-y-2 text-xs md:text-sm">
+              <div class="flex items-start gap-2">
+                <span class="text-zinc-500 font-bold min-w-[120px]">Jawaban Kamu:</span>
+                <span class="font-bold ${item.isCorrect ? 'text-emerald-700' : 'text-zinc-900'}">${userAnsDisplay}</span>
+              </div>
+              <div class="flex items-start gap-2 pt-1 border-t border-zinc-200">
+                <span class="text-zinc-500 font-bold min-w-[120px]">Kunci Resmi:</span>
+                <div class="flex-grow font-bold text-[#18181B]">${keyDisplay}</div>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    }
+
+    let app;
+    window.addEventListener('DOMContentLoaded', () => {
+      app = new QuizApp();
+    });
+  </script>
+</body>
+</html>
