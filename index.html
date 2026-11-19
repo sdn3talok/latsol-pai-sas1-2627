@@ -513,6 +513,8 @@
 
         // Apply theme color
         const themeColor = questionsData.themeColor || classInfo.bg;
+        this.currentAccentColor = themeColor;
+        this.currentAccentText = classInfo.text || '#FFFFFF';
         document.getElementById('student-form-card').style.backgroundColor = themeColor;
         document.getElementById('active-class-pill').textContent = classInfo.title;
         document.getElementById('active-class-pill').style.backgroundColor = classInfo.badgeBg;
@@ -844,24 +846,26 @@
       handlePgSelect(qid, letter) {
         this.answers[qid] = letter;
 
+        const accent = this.currentAccentColor || '#4F46E5';
         const card = document.getElementById(`q-card-${qid}`);
         if (card) {
           const labels = card.querySelectorAll('.pg-option-label');
           labels.forEach(lbl => {
             const val = lbl.getAttribute('data-val');
             const badge = lbl.querySelector('.pg-badge');
+            const textSpan = lbl.querySelector('span:last-child');
             if (val === letter) {
-              lbl.classList.remove('border-zinc-300', 'bg-white');
-              lbl.classList.add('border-black', 'bg-[#18181B]', 'text-white');
-              badge.classList.remove('bg-zinc-200', 'text-black');
-              badge.classList.add('bg-[#D4F479]', 'text-[#111111]');
-              lbl.querySelector('span:last-child').classList.add('text-white');
+              lbl.style.backgroundColor = accent;
+              lbl.style.borderColor = accent;
+              badge.style.backgroundColor = 'rgba(255,255,255,0.25)';
+              badge.style.color = '#ffffff';
+              if (textSpan) textSpan.style.color = '#ffffff';
             } else {
-              lbl.classList.add('border-zinc-300', 'bg-white');
-              lbl.classList.remove('border-black', 'bg-[#18181B]', 'text-white');
-              badge.classList.add('bg-zinc-200', 'text-black');
-              badge.classList.remove('bg-[#D4F479]', 'text-[#111111]');
-              lbl.querySelector('span:last-child').classList.remove('text-white');
+              lbl.style.backgroundColor = '';
+              lbl.style.borderColor = '';
+              badge.style.backgroundColor = '';
+              badge.style.color = '';
+              if (textSpan) textSpan.style.color = '';
             }
           });
         }
@@ -884,25 +888,27 @@
           }
         }
 
+        const accent = this.currentAccentColor || '#4F46E5';
         const card = document.getElementById(`q-card-${qid}`);
         if (card) {
           const labels = card.querySelectorAll('.pgk-option-label');
           labels.forEach(lbl => {
             const val = lbl.getAttribute('data-val');
             const badge = lbl.querySelector('.pgk-badge');
+            const textSpan = lbl.querySelector('span:last-child');
             const selected = Array.isArray(this.answers[qid]) && this.answers[qid].includes(val);
             if (selected) {
-              lbl.classList.remove('border-zinc-300', 'bg-white');
-              lbl.classList.add('border-black', 'bg-[#18181B]', 'text-white');
-              badge.classList.remove('bg-zinc-200', 'text-black');
-              badge.classList.add('bg-[#D4F479]', 'text-[#111111]');
-              lbl.querySelector('span:last-child').classList.add('text-white');
+              lbl.style.backgroundColor = accent;
+              lbl.style.borderColor = accent;
+              badge.style.backgroundColor = 'rgba(255,255,255,0.25)';
+              badge.style.color = '#ffffff';
+              if (textSpan) textSpan.style.color = '#ffffff';
             } else {
-              lbl.classList.add('border-zinc-300', 'bg-white');
-              lbl.classList.remove('border-black', 'bg-[#18181B]', 'text-white');
-              badge.classList.add('bg-zinc-200', 'text-black');
-              badge.classList.remove('bg-[#D4F479]', 'text-[#111111]');
-              lbl.querySelector('span:last-child').classList.remove('text-white');
+              lbl.style.backgroundColor = '';
+              lbl.style.borderColor = '';
+              badge.style.backgroundColor = '';
+              badge.style.color = '';
+              if (textSpan) textSpan.style.color = '';
             }
           });
         }
